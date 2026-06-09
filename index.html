@@ -132,6 +132,44 @@
 
   footer{margin-top:46px;text-align:center;color:var(--muted);font-size:13px;line-height:1.7}
   .legend{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:12px 0 0;font-size:13px;color:var(--muted)}
+
+  /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
+  @media(max-width:760px){
+    body{padding:24px 12px 60px}
+    h2.section{font-size:18px;margin:34px 0 14px}
+
+    /* таблица → карточки */
+    .scroll{overflow:visible;border:none;box-shadow:none;border-radius:0}
+    #masterTable,#masterTable tbody,#masterTable tr,#masterTable td{display:block;width:100%;min-width:0}
+    #masterTable{min-width:0}
+    #masterTable thead{display:none}
+    #masterTable tr{background:var(--card);border:1px solid var(--line);border-radius:16px;
+      padding:6px 14px 12px;margin-bottom:14px;box-shadow:0 8px 22px rgba(0,0,0,.3)}
+    #masterTable tr.rowwin{border-color:var(--teal);box-shadow:0 8px 22px rgba(52,227,195,.18)}
+    #masterTable td{border:none;display:flex;justify-content:space-between;align-items:center;gap:14px;
+      padding:8px 0;text-align:right;border-bottom:1px solid var(--line)}
+    #masterTable td:last-child{border-bottom:none}
+    #masterTable td::before{content:attr(data-label);color:var(--muted);font-weight:600;font-size:11.5px;
+      text-transform:uppercase;letter-spacing:.03em;text-align:left;flex-shrink:0}
+    /* первая ячейка — заголовок карточки */
+    #masterTable td.htl{display:block;text-align:left;font-size:17px;padding:6px 0 10px;border-bottom:2px solid var(--line)}
+    #masterTable td.htl::before{display:none}
+    #masterTable td.htl small{font-size:12.5px}
+    /* цена за ночь крупнее */
+    #masterTable td[data-label*="ночь"]{font-size:16px}
+    #masterTable td .srcbtn{padding:8px 16px}
+
+    .legend{font-size:12px;gap:10px}
+    .meta-row{gap:8px}
+    .chip{font-size:13px;padding:7px 13px}
+    .lovetax{padding:18px 16px} .lovetax p{font-size:14px}
+    .vcard,.reg,.lc,.joke{padding:16px}
+    table:not(#masterTable){min-width:0}
+  }
+  @media(max-width:760px){
+    /* остальные таблицы (если появятся) тоже скроллим мягко */
+    .scroll{-webkit-overflow-scrolling:touch}
+  }
 </style>
 </head>
 <body>
@@ -455,6 +493,15 @@
     for(let i=0;i<24;i++){const s=document.createElement('span');s.textContent=e[i%e.length];
       s.style.left=(Math.random()*100)+'%';s.style.fontSize=(18+Math.random()*26)+'px';
       s.style.animationDuration=(11+Math.random()*16)+'s';s.style.animationDelay=(-Math.random()*20)+'s';box.appendChild(s);}
+  })();
+
+  // авто-подписи колонок для мобильных карточек
+  (function(){
+    const t=document.getElementById('masterTable');
+    const heads=[...t.tHead.rows[0].cells].map(h=>h.textContent.replace(/[⇅]/g,'').trim());
+    for(const r of t.tBodies[0].rows){
+      [...r.cells].forEach((c,i)=>{ if(heads[i]) c.setAttribute('data-label',heads[i]); });
+    }
   })();
 
   // сортировка таблицы
