@@ -8,15 +8,13 @@
   :root{
     --bg:#0c1424; --card:#121d33; --card2:#16223c; --line:#243450;
     --text:#eaf0fb; --muted:#90a0bd; --gold:#ffcf5c; --teal:#34e3c3;
-    --win:#1f8f6b; --winbg:rgba(52,227,195,.12); --bad:#ff6b6b;
-    --shadow:0 18px 50px rgba(0,0,0,.45);
+    --winbg:rgba(52,227,195,.12); --bad:#ff6b6b; --shadow:0 18px 50px rgba(0,0,0,.45);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     background:radial-gradient(1200px 700px at 15% -10%,#19365e 0%,transparent 55%),
-               radial-gradient(900px 600px at 100% 0%,#1c5b54 0%,transparent 50%),
-               var(--bg);
+               radial-gradient(900px 600px at 100% 0%,#1c5b54 0%,transparent 50%),var(--bg);
     color:var(--text); line-height:1.5; padding:38px 18px 80px; min-height:100vh;
   }
   .wrap{max-width:1240px;margin:0 auto;position:relative;z-index:1}
@@ -33,10 +31,9 @@
   h2.section{font-size:20px;margin:42px 0 16px;display:flex;align-items:center;gap:10px}
   h2.section::before{content:"";width:6px;height:22px;border-radius:3px;background:var(--teal)}
 
-  /* verdict */
   .verdict-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
   .vcard{background:linear-gradient(135deg,rgba(52,227,195,.10),rgba(255,207,92,.06));
-    border:1px solid var(--line);border-radius:18px;padding:20px;position:relative;transition:transform .25s}
+    border:1px solid var(--line);border-radius:18px;padding:20px;transition:transform .25s}
   .vcard:hover{transform:translateY(-6px)}
   .vcard.gold{border-color:var(--gold)} .vcard.teal{border-color:var(--teal)} .vcard.purple{border-color:#9b8cff}
   .vcard .ic{font-size:30px}
@@ -45,7 +42,6 @@
   .vcard p{color:#cfe0f5;font-size:13.5px}
   .vcard .pr{color:var(--gold);font-weight:800;font-size:16px;margin-top:8px}
 
-  /* love tax */
   .lovetax{background:linear-gradient(135deg,#ff5c8a22,#ffcf5c22);border:1.5px dashed #ff7eb0;
     border-radius:20px;padding:22px 26px;margin:14px 0;text-align:center}
   .lovetax .heart{font-size:40px;display:inline-block;animation:bob 1.5s ease-in-out infinite}
@@ -53,71 +49,86 @@
   .lovetax p{color:#ffd9e6;font-size:15px;max-width:680px;margin:0 auto}
   .lovetax b{color:var(--gold)}
 
-  /* table */
-  .scroll{overflow-x:auto;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow)}
-  table{border-collapse:collapse;width:100%;min-width:980px;background:var(--card)}
-  th,td{padding:13px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:14px;vertical-align:middle}
-  thead th{background:var(--card2);color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
-  th.sortable{cursor:pointer;user-select:none;white-space:nowrap}
-  th.sortable:hover{color:var(--teal)}
-  th.sortable::after{content:" ⇅";opacity:.4;font-size:11px}
-  tbody tr:hover{background:rgba(255,255,255,.03)}
-  .htl{font-weight:700;font-size:14.5px}
-  .htl small{display:block;color:var(--muted);font-weight:500;font-size:12px;margin-top:2px}
-  .num{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
-  .best{color:var(--teal)} .worst{color:var(--bad)}
-  .rowwin{background:var(--winbg)!important}
   .loc-badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;white-space:nowrap}
   .l-kemer{background:#34e3c322;color:var(--teal)} .l-antalya{background:#ffcf5c22;color:var(--gold)}
-  .l-side{background:#9b8cff22;color:#b9acff} .l-bodrum{background:#ff8c5c22;color:#ff9d72} .l-marmaris{background:#ff7eb022;color:#ff9ec5}
-  .l-fethiye{background:#7ee78722;color:#86e08e}
-  .medal{font-size:15px;margin-right:3px}
-  .flag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:5px;background:rgba(255,207,92,.15);color:var(--gold);margin-top:3px}
-  .srcbtn{display:inline-block;font-size:12px;font-weight:700;padding:6px 12px;border-radius:9px;white-space:nowrap;
-    background:linear-gradient(135deg,rgba(52,227,195,.18),rgba(255,207,92,.12));border:1px solid var(--teal);
-    color:var(--teal);text-decoration:none;transition:transform .15s,box-shadow .15s}
-  .srcbtn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(52,227,195,.3)}
-  .maplink{display:inline-block;margin-top:6px;font-size:12px;font-weight:600;color:var(--gold);text-decoration:none;
-    border-bottom:1px dashed rgba(255,207,92,.5);transition:color .15s}
-  .maplink:hover{color:#fff;border-color:#fff}
+  .l-side{background:#9b8cff22;color:#b9acff} .l-bodrum{background:#ff8c5c22;color:#ff9d72}
+  .l-marmaris{background:#ff7eb022;color:#ff9ec5} .l-fethiye{background:#7ee78722;color:#86e08e}
 
   /* region map */
-  .regions{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+  .regions{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
   .reg{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .25s}
   .reg:hover{transform:translateY(-5px)}
   .reg .rt{font-size:16px;font-weight:700;margin-bottom:4px}
   .reg .rs{font-size:13px;color:#cfe0f5;margin-bottom:8px}
   .reg .rn{font-size:12px;color:var(--muted)}
 
-  /* leisure */
-  .leisure{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-  .lc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;transition:transform .25s}
-  .lc:hover{transform:translateY(-6px)}
-  .lc h4{font-size:16px;margin-bottom:2px}
-  .lc .tagline{color:var(--muted);font-size:12.5px;margin-bottom:12px;font-style:italic}
-  .lc .bar-tag{display:inline-block;background:var(--winbg);border:1px solid var(--teal);color:var(--teal);
-    font-size:12px;font-weight:700;padding:4px 11px;border-radius:999px;margin-bottom:12px}
-  .lc .bar-tag.warn{background:rgba(255,207,92,.12);border-color:var(--gold);color:var(--gold)}
-  .lc p.d{font-size:13px;color:#d6e2f5;margin-bottom:8px}
-  .lc ul{list-style:none;font-size:12.5px}
-  .lc li{padding:3px 0;color:#cfe0f5}
-  .lc li::before{content:"✦ ";color:var(--gold)}
+  /* sort bar */
+  .sortbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+  .sortbar .sl{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase}
+  .sortchip{background:var(--card);border:1px solid var(--line);color:var(--text);font-size:13px;font-weight:600;
+    padding:9px 14px;border-radius:11px;cursor:pointer;transition:transform .12s,border-color .15s,background .15s}
+  .sortchip:active{transform:scale(.95)}
+  .sortchip.active{background:linear-gradient(135deg,var(--teal),var(--gold));color:#062018;border-color:transparent;font-weight:800}
+  .sorthint{color:var(--muted);font-size:12.5px;margin:0 2px 16px}
 
-  /* jokes */
-  .jokes{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
-  .joke{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;position:relative;overflow:hidden;transition:transform .25s}
-  .joke:hover{transform:translateY(-6px)}
-  .joke .emo{font-size:32px;display:inline-block;animation:bob 2.4s ease-in-out infinite}
-  .joke h4{font-size:15px;margin:8px 0 6px}
-  .joke p{font-size:13.5px;color:#cfe0f5}
-  .joke::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.05) 50%,transparent 60%);
-    transform:translateX(-120%);transition:transform .6s}
-  .joke:hover::after{transform:translateX(120%)}
-  .liver{margin-top:10px}
-  .liver .lname{font-size:12px;color:var(--muted);margin-bottom:4px;display:flex;justify-content:space-between}
-  .liver .track{height:11px;background:#22324e;border-radius:7px;overflow:hidden}
-  .liver .fill{height:100%;border-radius:7px;background:linear-gradient(90deg,#34e3c3,#ffcf5c,#ff6b6b);
-    background-size:200% 100%;animation:shimmer 2s linear infinite}
+  /* hotel cards */
+  .hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+  .hcard{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .2s}
+  .hcard:hover{transform:translateY(-6px);border-color:var(--teal)}
+  .hcard.win{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal),0 14px 34px rgba(52,227,195,.14)}
+  .hcard.incat{opacity:.93}
+  .hcard .ph{position:relative;height:168px;background:#0e1830;overflow:hidden}
+  .hcard .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+  .hcard:hover .ph img{transform:scale(1.06)}
+  .hcard .ph .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,30,.1) 35%,rgba(10,16,30,.9))}
+  .hcard .ph .medal{position:absolute;top:10px;left:12px;font-size:26px;filter:drop-shadow(0 2px 4px #000)}
+  .hcard .ph .loc{position:absolute;top:13px;right:12px}
+  .hcard .ph .ppn{position:absolute;left:14px;bottom:9px;font-weight:800;font-size:21px;color:#fff;text-shadow:0 2px 6px #000}
+  .hcard .ph .ppn small{font-weight:500;font-size:11.5px;color:#dbe5f5}
+  .hcard .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .hcard h4{font-size:15.5px;line-height:1.3}
+  .hcard h4 .st{color:var(--gold);font-size:13px}
+  .hcard .meta{font-size:12.5px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .hcard .meta .tot{color:var(--text);font-weight:800}
+  .hcard .prices{display:flex;gap:8px;flex-wrap:wrap;font-size:12.5px}
+  .hcard .pill{background:var(--card2);border-radius:8px;padding:5px 9px;font-weight:600;color:var(--muted)}
+  .hcard .pill b{color:var(--gold);font-weight:800}
+  .bar{font-size:12px;font-weight:700;color:var(--teal)} .bar.warn{color:var(--gold)}
+  .joke{font-size:12.5px;color:#cfe0f5;font-style:italic;border-left:2px solid var(--teal);padding-left:10px;line-height:1.45}
+  .hcard .acts{display:flex;gap:7px;margin-top:auto;padding-top:4px}
+  .hcard .acts a,.hcard .acts button{flex:1;text-align:center;font-size:12.5px;font-weight:700;padding:9px 6px;border-radius:10px;
+    cursor:pointer;border:1px solid var(--line);background:var(--card2);color:var(--text);text-decoration:none;transition:transform .12s,background .15s}
+  .hcard .acts a:hover,.hcard .acts button:hover{background:#1c2c4a}
+  .hcard .acts .more{background:linear-gradient(135deg,var(--teal),var(--gold));color:#062018;border:none}
+  .hcard .acts a:active,.hcard .acts button:active{transform:scale(.95)}
+  .flag2{font-size:10px;font-weight:700;background:rgba(255,207,92,.15);color:var(--gold);padding:1px 6px;border-radius:5px}
+
+  /* modal */
+  .modal{position:fixed;inset:0;z-index:1000;display:none;align-items:flex-start;justify-content:center;padding:28px 14px;
+    background:rgba(5,9,18,.8);backdrop-filter:blur(4px);overflow-y:auto}
+  .modal.open{display:flex}
+  .modal .box{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;max-width:680px;width:100%;
+    overflow:hidden;box-shadow:var(--shadow);animation:pop .25s ease}
+  @keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+  .modal .close{position:absolute;top:14px;right:16px;width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;
+    background:rgba(0,0,0,.45);color:#fff;font-size:24px;line-height:1;z-index:3;display:flex;align-items:center;justify-content:center}
+  .modal .gal{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:118px 118px;gap:4px}
+  .modal .gal img{width:100%;height:100%;object-fit:cover;display:block}
+  .modal .gal img:nth-child(1){grid-row:1/3}
+  .modal .mbody{padding:18px 20px 22px}
+  .modal h3{font-size:21px} .modal h3 .st{color:var(--gold);font-size:15px}
+  .modal .msub{color:var(--muted);font-size:13px;margin:3px 0 12px}
+  .modal .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:6px 0 12px}
+  .modal .stat{background:var(--card2);border-radius:10px;padding:10px 12px}
+  .modal .stat .k{font-size:11px;color:var(--muted);text-transform:uppercase}
+  .modal .stat .v{font-size:16px;font-weight:800}
+  .modal h5{margin:14px 0 4px;color:var(--teal);text-transform:uppercase;font-size:12px;letter-spacing:.04em}
+  .modal ul{list-style:none} .modal li{padding:5px 0;font-size:13.5px;color:#d6e2f5;border-bottom:1px solid var(--line)}
+  .modal li::before{content:"✦ ";color:var(--gold)}
+  .modal .mlinks{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+  .modal .mlinks a{flex:1;text-align:center;padding:12px;border-radius:11px;font-weight:700;text-decoration:none;min-width:130px}
+  .modal .mlinks .map{background:rgba(255,207,92,.14);color:var(--gold);border:1px solid var(--gold)}
+  .modal .mlinks .src{background:rgba(52,227,195,.14);color:var(--teal);border:1px solid var(--teal)}
 
   /* dice */
   .randombtn{display:block;margin:8px auto 0;background:linear-gradient(135deg,var(--teal),var(--gold));
@@ -126,63 +137,23 @@
   .randombtn:hover{transform:scale(1.05)} .randombtn:active{transform:scale(.96)}
   #dice{min-height:54px;text-align:center;font-size:17px;margin-top:14px;color:var(--gold);font-weight:700}
 
-  /* animations */
   @keyframes wobble{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-  @keyframes shimmer{0%{background-position:0% 0}100%{background-position:200% 0}}
   @keyframes floatUp{0%{transform:translateY(110vh) rotate(0);opacity:0}10%{opacity:.85}90%{opacity:.85}100%{transform:translateY(-15vh) rotate(360deg);opacity:0}}
   .floaties{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
   .floaties span{position:absolute;animation:floatUp linear infinite;will-change:transform}
 
   footer{margin-top:46px;text-align:center;color:var(--muted);font-size:13px;line-height:1.7}
-  .legend{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:12px 0 0;font-size:13px;color:var(--muted)}
 
-  /* панель сортировки (только моб) */
-  .sortbar{display:none;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
-  .sortbar .sl{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;width:100%;margin-bottom:2px}
-  .sortchip{background:var(--card);border:1px solid var(--line);color:var(--text);font-size:13px;font-weight:600;
-    padding:9px 14px;border-radius:11px;cursor:pointer;transition:transform .12s,border-color .15s,background .15s}
-  .sortchip:active{transform:scale(.95)}
-  .sortchip.active{background:linear-gradient(135deg,var(--teal),var(--gold));color:#062018;border-color:transparent;font-weight:800}
-  .sortchip .dir{font-size:11px;opacity:.7}
-
-  /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
   @media(max-width:760px){
     body{padding:24px 12px 60px}
     h2.section{font-size:18px;margin:34px 0 14px}
-    .sortbar{display:flex}
-
-    /* таблица → карточки */
-    .scroll{overflow:visible;border:none;box-shadow:none;border-radius:0}
-    #masterTable,#masterTable tbody,#masterTable tr,#masterTable td{display:block;width:100%;min-width:0}
-    #masterTable{min-width:0}
-    #masterTable thead{display:none}
-    #masterTable tr{background:var(--card);border:1px solid var(--line);border-radius:16px;
-      padding:6px 14px 12px;margin-bottom:14px;box-shadow:0 8px 22px rgba(0,0,0,.3)}
-    #masterTable tr.rowwin{border-color:var(--teal);box-shadow:0 8px 22px rgba(52,227,195,.18)}
-    #masterTable td{border:none;display:flex;justify-content:space-between;align-items:center;gap:14px;
-      padding:8px 0;text-align:right;border-bottom:1px solid var(--line)}
-    #masterTable td:last-child{border-bottom:none}
-    #masterTable td::before{content:attr(data-label);color:var(--muted);font-weight:600;font-size:11.5px;
-      text-transform:uppercase;letter-spacing:.03em;text-align:left;flex-shrink:0}
-    /* первая ячейка — заголовок карточки */
-    #masterTable td.htl{display:block;text-align:left;font-size:17px;padding:6px 0 10px;border-bottom:2px solid var(--line)}
-    #masterTable td.htl::before{display:none}
-    #masterTable td.htl small{font-size:12.5px}
-    /* цена за ночь крупнее */
-    #masterTable td[data-label*="ночь"]{font-size:16px}
-    #masterTable td .srcbtn{padding:8px 16px}
-
-    .legend{font-size:12px;gap:10px}
-    .meta-row{gap:8px}
-    .chip{font-size:13px;padding:7px 13px}
-    .lovetax{padding:18px 16px} .lovetax p{font-size:14px}
-    .vcard,.reg,.lc,.joke{padding:16px}
-    table:not(#masterTable){min-width:0}
-  }
-  @media(max-width:760px){
-    /* остальные таблицы (если появятся) тоже скроллим мягко */
-    .scroll{-webkit-overflow-scrolling:touch}
+    .hgrid{grid-template-columns:1fr}
+    .meta-row{gap:8px}.chip{font-size:13px;padding:7px 13px}
+    .lovetax{padding:18px 16px}.lovetax p{font-size:14px}
+    .vcard,.reg{padding:16px}
+    .modal{padding:14px 8px}
+    .modal .gal{grid-template-rows:96px 96px}
   }
 </style>
 </head>
@@ -193,23 +164,21 @@
   <header>
     <div class="eyebrow">Турция · Июль 2026 · 5 человек</div>
     <h1>Куда летим, банда?</h1>
-    <p class="sub">14 вариантов от турагента Юлии — пара (2-местный) + трое парней (3-местный). Всё посчитано и разложено.</p>
+    <p class="sub">14 вариантов от турагента Юлии — пара (2-местный) + трое парней (3-местный). Цена, досуг, бар и фото — всё в одном месте.</p>
     <div class="meta-row">
       <div class="chip">👥 Состав: <b>2 + 3</b></div>
-      <div class="chip">🛫 Вылет: <b>Москва, 11 июля</b></div>
+      <div class="chip">🛫 Вылет: <b>Москва, ~11 июля</b></div>
       <div class="chip">📊 Вариантов: <b>14</b></div>
       <div class="chip">📍 Городов: <b>6</b></div>
     </div>
   </header>
 
-  <!-- LOVE TAX -->
   <div class="lovetax">
     <div class="heart">💔💸</div>
     <h3>Внимание: действует «налог на любовь»</h3>
     <p>Пара платит за номер на двоих, парни делят на троих — поэтому каждый холостяк выходит <b>дешевле на 3–9 тыс. ₽</b>. Голубки — это цена за романтику и отдельную кровать. Парни — это цена за храп соседа. Всё честно. 🫶</p>
   </div>
 
-  <!-- VERDICT -->
   <h2 class="section">🏆 Рекомендации по категориям</h2>
   <div class="verdict-grid">
     <div class="vcard teal">
@@ -227,209 +196,15 @@
       <div class="pr">495 618 ₽ · 12 390 ₽/чел/ночь</div>
     </div>
     <div class="vcard purple">
-      <div class="ic">🔞</div>
-      <div class="lbl">Тёмная лошадка для компании</div>
-      <h3>Vox Maris 16+ · Сиде</h3>
-      <p>Adults Only — никаких детей у бассейна, только взрослый отдых. Для компании 5 человек — самое то.</p>
-      <div class="pr">567 262 ₽ · 14 182 ₽/чел/ночь</div>
+      <div class="ic">🍸</div>
+      <div class="lbl">Тёмная лошадка для движа</div>
+      <h3>Marmaris Park · Мармарис</h3>
+      <p>3-е место по выгоде и 2-я по дешевизне сумма. Bar Street под боком — для «пара + три парня» идеально.</p>
+      <div class="pr">465 997 ₽ · 13 314 ₽/чел/ночь</div>
     </div>
   </div>
-  <p style="color:var(--muted);font-size:13.5px;margin:12px 2px 0">
-    💸 <b style="color:var(--text)">Минимальная сумма вообще</b> — Armas Beach 6 ночей за 432 452 ₽. 🍸 <b style="color:var(--text)">Тёмная лошадка</b> — Marmaris Park: 3-е место по выгоде (13 314 ₽/ночь), 2-я по дешевизне сумма и знаменитая Bar Street под боком. 🪩 <b style="color:var(--text)">Премиум-движ</b> — Crystal / Corendon. 🏙 <b style="color:var(--text)">Большой город</b> — Kremlin Palace в Анталье.
-  </p>
 
-  <!-- MASTER TABLE -->
-  <h2 class="section">📊 Все 14 вариантов</h2>
-  <div class="sortbar">
-    <span class="sl">🔀 Сортировать:</span>
-    <button class="sortchip active" onclick="mobSort(5,true,this)">💰 Дешевле <span class="dir">↑</span></button>
-    <button class="sortchip" onclick="mobSort(6,true,this)">📈 Цена/ночь <span class="dir">↑</span></button>
-    <button class="sortchip" onclick="mobSort(2,false,this)">🌙 Больше ночей <span class="dir">↓</span></button>
-    <button class="sortchip" onclick="mobSort(3,true,this)">👫 Цена пары <span class="dir">↑</span></button>
-  </div>
-  <p style="color:var(--muted);font-size:13px;margin:-6px 2px 14px" class="deskhint">💻 На компьютере жми на заголовки таблицы, 📱 на телефоне — кнопки выше.</p>
-  <div class="scroll">
-  <table id="masterTable">
-    <thead>
-      <tr>
-        <th>Отель</th>
-        <th>Локация</th>
-        <th class="sortable" onclick="sortTable(2,'num')">Ночей</th>
-        <th class="sortable" onclick="sortTable(3,'num')">👫 пара / чел</th>
-        <th class="sortable" onclick="sortTable(4,'num')">👬 тройка / чел</th>
-        <th class="sortable" onclick="sortTable(5,'num')">Итого на 5</th>
-        <th class="sortable" onclick="sortTable(6,'num')">₽ / чел / ночь</th>
-        <th>Фишка</th>
-        <th>Источник цены</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="rowwin">
-        <td class="htl">Diamond of Bodrum 5★<small>Pegasus, ночные рейсы</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Diamond+of+Bodrum+Hotel+Bodrum+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-bodrum">Бодрум</span></td>
-        <td class="num" data-sort="8">8</td>
-        <td class="num" data-sort="102400">102 400 ₽</td>
-        <td class="num" data-sort="96939">96 939 ₽</td>
-        <td class="num" data-sort="495618">495 618 ₽</td>
-        <td class="num best" data-sort="12390"><span class="medal">🥇</span>12 390 ₽</td>
-        <td>Чистое море, виды</td>
-        <td><a class="srcbtn" href="https://qui-quo.ru/UL46-PO66" target="_blank" rel="noopener">🔗 qui-quo</a></td>
-      </tr>
-      <tr class="rowwin">
-        <td class="htl">Armas Beach 5★<small>пляж напротив</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Armas+Beach+Hotel+Kemer+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-kemer">Кемер</span></td>
-        <td class="num" data-sort="8">8</td>
-        <td class="num" data-sort="104018">104 018 ₽</td>
-        <td class="num" data-sort="98130">98 130 ₽</td>
-        <td class="num" data-sort="502425">502 425 ₽</td>
-        <td class="num best" data-sort="12561"><span class="medal">🥈</span>12 561 ₽</td>
-        <td>Лучший баланс</td>
-        <td><a class="srcbtn" href="https://qui-quo.ru/PK37-VX86" target="_blank" rel="noopener">🔗 qui-quo</a></td>
-      </tr>
-      <tr>
-        <td class="htl">Marmaris Park Hotel 5★<small>Bar Street рядом · AI · 7 ночей</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Marmaris+Park+Hotel+Marmaris+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-marmaris">Мармарис</span></td>
-        <td class="num" data-sort="7">7</td>
-        <td class="num" data-sort="96224">96 224 ₽</td>
-        <td class="num" data-sort="91183">91 183 ₽</td>
-        <td class="num" data-sort="465997">465 997 ₽</td>
-        <td class="num best" data-sort="13314"><span class="medal">🥉</span>13 314 ₽</td>
-        <td>🍸 движ Мармариса</td>
-        <td><a class="srcbtn" href="https://chip.travel/podborka#tvcartid=72247256" target="_blank" rel="noopener">🔗 chip.travel</a></td>
-      </tr>
-      <tr>
-        <td class="htl">Green Nature Resort &amp; Spa 5★<small>клубные номера · AI · 7 ночей</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Green+Nature+Resort+Spa+Marmaris+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-marmaris">Мармарис</span></td>
-        <td class="num" data-sort="7">7</td>
-        <td class="num" data-sort="97944">97 944 ₽</td>
-        <td class="num" data-sort="96788">96 788 ₽</td>
-        <td class="num" data-sort="486252">486 252 ₽</td>
-        <td class="num" data-sort="13893">13 893 ₽</td>
-        <td>Зелёная территория</td>
-        <td><a class="srcbtn" href="https://chip.travel/podborka#tvcartid=72247256" target="_blank" rel="noopener">🔗 chip.travel</a></td>
-      </tr>
-      <tr>
-        <td class="htl">Vox Maris Resort 5★<small>Adults Only 16+</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Vox+Maris+Resort+Side+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-side">Сиде</span></td>
-        <td class="num" data-sort="8">8</td>
-        <td class="num" data-sort="117612">117 612 ₽</td>
-        <td class="num" data-sort="110679">110 679 ₽</td>
-        <td class="num" data-sort="567262">567 262 ₽</td>
-        <td class="num" data-sort="14182">14 182 ₽</td>
-        <td>Без детей 🔞</td>
-        <td><a class="srcbtn" href="https://qui-quo.ru/KH25-IR73" target="_blank" rel="noopener">🔗 qui-quo</a></td>
-      </tr>
-      <tr>
-        <td class="htl">Lykia Botanika Beach 4★<small>Ex. Marvida · Ultra AI · 7 ночей</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Lykia+Botanika+Beach+Fethiye+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-fethiye">Фетхие</span></td>
-        <td class="num" data-sort="7">7</td>
-        <td class="num" data-sort="109592">109 592 ₽</td>
-        <td class="num" data-sort="93075">93 075 ₽</td>
-        <td class="num" data-sort="498408">498 408 ₽</td>
-        <td class="num" data-sort="14240">14 240 ₽</td>
-        <td>4★ · Ultra · семейный</td>
-        <td><a class="srcbtn" href="https://chip.travel/podborka#tvcartid=72247256" target="_blank" rel="noopener">🔗 chip.travel</a></td>
-      </tr>
-      <tr>
-        <td class="htl">Armas Beach 5★<small>тот же, 6 ночей</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Armas+Beach+Hotel+Kemer+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-kemer">Кемер</span></td>
-        <td class="num" data-sort="6">6</td>
-        <td class="num" data-sort="89140">89 140 ₽</td>
-        <td class="num" data-sort="84724">84 724 ₽</td>
-        <td class="num best" data-sort="432452">432 452 ₽</td>
-        <td class="num" data-sort="14415">14 415 ₽</td>
-        <td>💸 дешевле всего</td>
-        <td><a class="srcbtn" href="https://qui-quo.ru/TP79-EL31" target="_blank" rel="noopener">🔗 qui-quo</a></td>
-      </tr>
-      <tr>
-        <td class="htl">Kremlin Palace 5★<small>гигантский комплекс</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Kremlin+Palace+Hotel+Antalya+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-antalya">Анталья</span></td>
-        <td class="num" data-sort="8">8</td>
-        <td class="num" data-sort="128510">128 510 ₽</td>
-        <td class="num" data-sort="122637">122 637 ₽</td>
-        <td class="num" data-sort="624933">624 933 ₽</td>
-        <td class="num" data-sort="15623">15 623 ₽</td>
-        <td>🏙 большой город</td>
-        <td><a class="srcbtn" href="https://qui-quo.ru/FG17-TZ77" target="_blank" rel="noopener">🔗 qui-quo</a></td>
-      </tr>
-      <tr>
-        <td class="htl">Crystal De Luxe Comfort 5★<small>свой ночной клуб</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Crystal+De+Luxe+Resort+Kemer+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-kemer">Кемер</span></td>
-        <td class="num" data-sort="8">8</td>
-        <td class="num" data-sort="131642">131 642 ₽</td>
-        <td class="num" data-sort="122811">122 811 ₽</td>
-        <td class="num" data-sort="631716">631 716 ₽</td>
-        <td class="num" data-sort="15793">15 793 ₽</td>
-        <td>🪩 премиум-тусовка</td>
-        <td><a class="srcbtn" href="https://qui-quo.ru/RU04-EJ38" target="_blank" rel="noopener">🔗 qui-quo</a></td>
-      </tr>
-      <tr>
-        <td class="htl">Side Star Elegance 5★<small>рядом античный Сиде</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Side+Star+Elegance+Hotel+Side+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-side">Сиде</span></td>
-        <td class="num" data-sort="8">8</td>
-        <td class="num" data-sort="136684">136 684 ₽</td>
-        <td class="num" data-sort="127632">127 632 ₽</td>
-        <td class="num" data-sort="656265">656 265 ₽</td>
-        <td class="num" data-sort="16407">16 407 ₽</td>
-        <td>Питание 24/7</td>
-        <td><a class="srcbtn" href="https://qui-quo.ru/WK26-IA17" target="_blank" rel="noopener">🔗 qui-quo</a></td>
-      </tr>
-      <tr>
-        <td class="htl">Crystal De Luxe Comfort 5★<small>тот же, 6 ночей</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Crystal+De+Luxe+Resort+Kemer+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-kemer">Кемер</span></td>
-        <td class="num" data-sort="6">6</td>
-        <td class="num" data-sort="108341">108 341 ₽</td>
-        <td class="num" data-sort="101493">101 493 ₽</td>
-        <td class="num" data-sort="521162">521 162 ₽</td>
-        <td class="num" data-sort="17372">17 372 ₽</td>
-        <td>🪩 тусовка</td>
-        <td><a class="srcbtn" href="https://qui-quo.ru/NV72-RW54" target="_blank" rel="noopener">🔗 qui-quo</a></td>
-      </tr>
-      <tr>
-        <td class="htl">Corendon Hydros Club 5★<small>бар 24/7, аквапарк</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Corendon+Hydros+Club+Kemer+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-kemer">Кемер</span></td>
-        <td class="num" data-sort="6">6</td>
-        <td class="num" data-sort="123851">123 851 ₽</td>
-        <td class="num" data-sort="120964">120 964 ₽</td>
-        <td class="num worst" data-sort="610593">610 593 ₽</td>
-        <td class="num worst" data-sort="20353">20 353 ₽</td>
-        <td>Больше всего движа</td>
-        <td><a class="srcbtn" href="https://qui-quo.ru/CN67-FF97" target="_blank" rel="noopener">🔗 qui-quo</a></td>
-      </tr>
-      <tr style="opacity:.85">
-        <td class="htl">Armonia Holiday Village 5★<small>Coral Travel · «вариант зайки»</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Armonia+Holiday+Village+Spa+Bodrum+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-bodrum">Бодрум</span></td>
-        <td class="num" data-sort="8">8</td>
-        <td class="num" data-sort="96764">96 764 ₽</td>
-        <td class="num" data-sort="999999">уточнить</td>
-        <td class="num" data-sort="999999">~193 528 ₽<br><span class="flag">за 2 чел</span></td>
-        <td class="num" data-sort="999999">≈ 12 096 ₽*</td>
-        <td>AI, вылет 15 июля</td>
-        <td><a class="srcbtn" href="https://chip.travel/tour/armonia-holiday-village-spa-5/coral/11233656556134" target="_blank" rel="noopener">🔗 chip.travel</a></td>
-      </tr>
-      <tr style="opacity:.85">
-        <td class="htl">Mandarin Resort 4★<small>FUN&amp;SUN · вылет 12 июля</small><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mandarin+Resort+Hotel+Bodrum+Turkey" target="_blank" rel="noopener">📍 на карте</a></td>
-        <td><span class="loc-badge l-bodrum">Бодрум</span></td>
-        <td class="num" data-sort="8">8</td>
-        <td class="num" data-sort="103603">103 603 ₽</td>
-        <td class="num" data-sort="999999">уточнить</td>
-        <td class="num" data-sort="999999">~207 206 ₽<br><span class="flag">за 2 чел</span></td>
-        <td class="num" data-sort="999999">≈ 12 950 ₽*</td>
-        <td>AI · 4★ · со скидкой</td>
-        <td><a class="srcbtn" href="https://chip.travel/tour/mandarin-resort-4/fun%26sun/25221584579967" target="_blank" rel="noopener">🔗 chip.travel</a></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-  <div class="legend">
-    <span><b class="best" style="color:var(--teal)">●</b> лучший показатель</span>
-    <span><b class="worst" style="color:var(--bad)">●</b> худший</span>
-    <span>🥇🥈🥉 топ по цене за ночь</span>
-    <span>* Armonia, Mandarin — неполные данные (цена только за 2 чел)</span>
-  </div>
-
-  <!-- REGIONS -->
-  <h2 class="section">🗺 Куда вообще летим — гид по городам</h2>
+  <h2 class="section">🗺 Куда летим — гид по городам</h2>
   <div class="regions">
     <div class="reg"><div class="rt">🏔 Кемер</div><div class="rs">Горы + море, сосны, центр тусовок. Дискотеки Аура и Кристал.</div><div class="rn">Crystal, Corendon, Armas</div></div>
     <div class="reg"><div class="rt">🏙 Анталья</div><div class="rs">Большой город: шопинг, старый город Калеичи, 20 км от аэропорта.</div><div class="rn">Kremlin Palace</div></div>
@@ -439,111 +214,38 @@
     <div class="reg"><div class="rt">🌿 Фетхие</div><div class="rs">Бирюзовые бухты, Олюдениз и параглайдинг, природа и спокойствие.</div><div class="rn">Lykia Botanika</div></div>
   </div>
 
-  <!-- LEISURE -->
-  <h2 class="section">🎉 Досуг и бар — что включено в топ-вариантах</h2>
-  <div class="leisure">
-    <div class="lc">
-      <h4>🏖 Armas Beach · Кемер</h4>
-      <div class="tagline">Цена-качество, прямо на пляже</div>
-      <span class="bar-tag warn">🍹 Бар + swim-up · премиум за доплату</span>
-      <p class="d">Камерный отель, всё под рукой. Пляж напротив, активная анимация.</p>
-      <ul><li>Хвалят персонал, чистоту и еду</li><li>Аквапарка нет</li><li>⚠️ Анимация громкая до позднего вечера</li></ul>
-    </div>
-    <div class="lc">
-      <h4>💎 Diamond of Bodrum · Бодрум</h4>
-      <div class="tagline">Самая дешёвая ночь + виды</div>
-      <span class="bar-tag">🍹 Ultra All Inclusive</span>
-      <p class="d">Центр Бодрума, чистейшее море, панорамы города и атмосферные ресторанчики.</p>
-      <ul><li>Турецко-европейский, мало русифицирован</li><li>⚠️ Ночные рейсы Pegasus (05:30 / 00:05)</li><li>Пляж через подземный переход</li></ul>
-    </div>
-    <div class="lc">
-      <h4>🔞 Vox Maris · Сиде</h4>
-      <div class="tagline">Adults Only 16+ — взрослый отдых</div>
-      <span class="bar-tag">🍹 Ultra All Inclusive</span>
-      <p class="d">Никаких детей у бассейна и в ресторане. Тихий, эстетичный, для компании — кайф.</p>
-      <ul><li>Номера у бассейна</li><li>Песчаный пляж Сиде рядом</li><li>Спокойный вайб без детского визга</li></ul>
-    </div>
-    <div class="lc">
-      <h4>🪩 Crystal / Corendon · Кемер</h4>
-      <div class="tagline">Максимум тусовки и инфраструктуры</div>
-      <span class="bar-tag">🍸 Бар 24/7 (Corendon) · свой клуб (Crystal)</span>
-      <p class="d">Аквапарки, бесплатный SUP/каяк/стрельба, 5 ресторанов, шоу и вечеринки.</p>
-      <ul><li>Crystal: пешком до дискотек Аура/Кристал</li><li>Corendon: пляж 270 м, бар круглосуточно</li><li>Самые дорогие за ночь</li></ul>
-    </div>
-    <div class="lc">
-      <h4>🏙 Kremlin Palace · Анталья</h4>
-      <div class="tagline">Гигант с возможностями большого города</div>
-      <span class="bar-tag">🍹 Ultra All Inclusive</span>
-      <p class="d">Огромный добротный комплекс, хорошая анимация, вкусное питание. Рядом — весь город.</p>
-      <ul><li>Шопинг и старый город Калеичи</li><li>20 км от аэропорта — ехать недалеко</li><li>Есть куда выйти погулять</li></ul>
-    </div>
-    <div class="lc">
-      <h4>🏛 Side Star Elegance · Сиде</h4>
-      <div class="tagline">Античность под боком</div>
-      <span class="bar-tag">🍹 Ultra All Inclusive · питание 24/7</span>
-      <p class="d">42 000 м² ухоженной территории, отличный песчаный пляж с пологим входом.</p>
-      <ul><li>Рядом руины античного Сиде</li><li>Фитнес, теннис, бассейны</li><li>Самый дорогой из всех по сумме</li></ul>
-    </div>
+  <h2 class="section">🏨 Все 14 вариантов — выбираем сразу</h2>
+  <div class="sortbar">
+    <span class="sl">🔀 Сортировать:</span>
+    <button class="sortchip active" onclick="sortCards('total',true,this)">💰 Дешевле</button>
+    <button class="sortchip" onclick="sortCards('ppn',true,this)">📈 Цена/ночь</button>
+    <button class="sortchip" onclick="sortCards('nights',false,this)">🌙 Больше ночей</button>
+    <button class="sortchip" onclick="sortCards('pair',true,this)">👫 Цена пары</button>
   </div>
+  <p class="sorthint">Жми «Подробнее» на карточке — там галерея, весь досуг, бар и детали. 📷 Фото атмосферные (по вайбу города и типа отеля); точное место — кнопка «Карта».</p>
+  <div class="hgrid" id="cardGrid"></div>
 
-  <!-- JOKES -->
-  <h2 class="section">😎 Дегустация по версии нашей банды</h2>
-  <div class="jokes">
-    <div class="joke">
-      <span class="emo">🍸</span>
-      <h4>Corendon — «Печень, мы летим»</h4>
-      <p>Бар 24 часа. Это не отель, это марафон. К концу бармен знает твоё имя, а ты — все 5 ресторанов наизусть.</p>
-      <div class="liver"><div class="lname"><span>Нагрузка на печень</span><span>🔥 макс</span></div><div class="track"><div class="fill" style="width:96%"></div></div></div>
-    </div>
-    <div class="joke">
-      <span class="emo">🔞</span>
-      <h4>Vox Maris — «16+, дети, брысь»</h4>
-      <p>Adults Only. Никто не орёт «мама смотри как я ныряю» в 7 утра. Только взрослые, бар и тишина. Рай интроверта-тусовщика.</p>
-      <div class="liver"><div class="lname"><span>Уровень спокойствия</span><span>🧘 нирвана</span></div><div class="track"><div class="fill" style="width:90%"></div></div></div>
-    </div>
-    <div class="joke">
-      <span class="emo">💎</span>
-      <h4>Diamond Bodrum — «Европа, бэйби»</h4>
-      <p>Мало русифицирован — значит, в баре не услышишь «а Серёга где?». Зато виды, чистое море и ночной рейс в 5 утра, чтобы выспаться... в самолёте.</p>
-      <div class="liver"><div class="lname"><span>Шанс выспаться в рейсе</span><span>😴 0%</span></div><div class="track"><div class="fill" style="width:8%"></div></div></div>
-    </div>
-    <div class="joke">
-      <span class="emo">💞</span>
-      <h4>Варианты «зайки»</h4>
-      <p>Armonia и Marmaris Park нашла чья-то зайка. Голосуем уважительно — счастливая зайка = счастливый отпуск. Это вам любой женатик подтвердит.</p>
-      <div class="liver"><div class="lname"><span>Политическая важность</span><span>👑 критично</span></div><div class="track"><div class="fill" style="width:99%"></div></div></div>
-    </div>
-    <div class="joke">
-      <span class="emo">🧳</span>
-      <h4>Тот, кто опять «решит позже»</h4>
-      <p>Пока вы читаете — цены тикают, места разбирают. Решаем месяц — полетим в Турцию мысленно. С балкона.</p>
-      <div class="liver"><div class="lname"><span>Скорость решений</span><span>🐌 ну вы поняли</span></div><div class="track"><div class="fill" style="width:14%"></div></div></div>
-    </div>
-    <div class="joke">
-      <span class="emo">🏙</span>
-      <h4>Kremlin Palace — «Москва в Анталье»</h4>
-      <p>Назвали Кремлём, поставили в Анталье. Прилетел в Турцию — а как будто и не уезжал. Зато гигантский и до аэропорта рукой подать.</p>
-      <div class="liver"><div class="lname"><span>Имперский размах</span><span>🏛 100%</span></div><div class="track"><div class="fill" style="width:100%"></div></div></div>
-    </div>
-  </div>
-
-  <!-- DICE -->
   <h2 class="section">🎲 Не можете выбрать? Доверьтесь судьбе</h2>
   <p style="color:var(--muted);font-size:14px;margin:0 2px 14px">Для тех, кто спорит уже неделю. Жми — вселенная решит за вас (юридической силы не имеет, но обижаться нельзя).</p>
   <button class="randombtn" onclick="rollDice()">🎰 Выбрать отель за нас!</button>
   <div id="dice">Нажми кнопку 👆</div>
 
   <footer>
-    Ultra All Inclusive у большинства; AI (просто «всё включено») — у Armonia, Mandarin, Marmaris Park и Green Nature. Lykia — 4★, остальные 5★.<br>
-    Вылет из Москвы 11 июля 2026; часть туров — 12 июля (Mandarin, Marmaris, Green Nature, Lykia — на 7 ночей) и 15 июля (Armonia).<br>
+    Ultra All Inclusive у большинства; AI («всё включено») — у Armonia, Mandarin, Marmaris Park и Green Nature. Lykia — 4★, остальные 5★.<br>
+    Вылет из Москвы ~11 июля 2026; часть туров — 12 июля (на 7 ночей) и 15 июля (Armonia).<br>
     «₽/чел/ночь» = (цена 2-местного + 3-местного номера) ÷ 5 человек ÷ число ночей — честное сравнение при разном числе ночей и городах.<br>
-    Armonia и Mandarin — неполные данные (цена только за 2 чел). Уточняйте актуальность у Юлии перед бронированием.
+    Armonia и Mandarin — неполные данные (цена только за 2 чел). Фото иллюстративные. Уточняйте актуальность у Юлии перед бронированием.
   </footer>
 
 </div>
 
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="box" id="modalBody"></div>
+</div>
+
 <script>
-  // летающие эмодзи
+  // фон
   (function(){
     const e=['🌴','☀️','🍹','🪩','🏖','✈️','🍸','🐚','🕶','🩴','🌊','🦩','⛵','🏛'];
     const box=document.getElementById('floaties');
@@ -552,32 +254,194 @@
       s.style.animationDuration=(11+Math.random()*16)+'s';s.style.animationDelay=(-Math.random()*20)+'s';box.appendChild(s);}
   })();
 
-  // авто-подписи колонок для мобильных карточек
-  (function(){
-    const t=document.getElementById('masterTable');
-    const heads=[...t.tHead.rows[0].cells].map(h=>h.textContent.replace(/[⇅]/g,'').trim());
-    for(const r of t.tBodies[0].rows){
-      [...r.cells].forEach((c,i)=>{ if(heads[i]) c.setAttribute('data-label',heads[i]); });
-    }
-  })();
+  const M='https://www.google.com/maps/search/?api=1&query=';
+  const QQ='https://qui-quo.ru/', CHIP='https://chip.travel/podborka#tvcartid=72247256';
+  const DATA=[
+    {name:'Diamond of Bodrum',stars:5,city:'Бодрум',cityCls:'bodrum',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
+     pairPP:102400,trioPP:96939,total:495618,totalLabel:'495 618 ₽',ppn:12390,ppnLabel:'12 390 ₽',medal:1,win:true,
+     bar:'Ultra All Inclusive',barWarn:false,fishka:'Чистое море, виды',
+     joke:'Мало русифицирован — в баре не услышишь «а Серёга где?». Зато виды, чистое море и ночной рейс в 5 утра, чтобы выспаться... в самолёте.',
+     leisure:['Центр Бодрума, чистейшее море','Панорамы города и атмосферные ресторанчики','Турецко-европейский, мало русифицирован','Пляж через подземный переход','⚠️ Ночные рейсы Pegasus (05:30 / 00:05)'],
+     extra:['Перелёт: Pegasus','Даты: 11–19 июля'],src:QQ+'UL46-PO66',srcLabel:'qui-quo',map:M+'Diamond+of+Bodrum+Hotel+Bodrum+Turkey',
+     pics:['bodrum,sea','marina,boat','swimmingpool,resort']},
 
-  // сортировка таблицы
-  let sortDir={};
-  function applySort(col,asc){
-    const tb=document.querySelector('#masterTable tbody');
-    [...tb.rows].sort((a,b)=>{
-      const av=parseFloat(a.cells[col].dataset.sort), bv=parseFloat(b.cells[col].dataset.sort);
-      return asc?av-bv:bv-av;
-    }).forEach(r=>tb.appendChild(r));
+    {name:'Armas Beach',stars:5,city:'Кемер',cityCls:'kemer',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
+     pairPP:104018,trioPP:98130,total:502425,totalLabel:'502 425 ₽',ppn:12561,ppnLabel:'12 561 ₽',medal:2,win:true,
+     bar:'Бар + swim-up · премиум за доплату',barWarn:true,fishka:'Лучший баланс',
+     joke:'Пляж напротив, кошелёк целее. Минус — анимация орёт до полуночи. Спать всё равно не будете, но хотя бы бесплатно.',
+     leisure:['Камерный отель (~6000 м²), всё под рукой','Пляж прямо напротив, центр Кемера','Хвалят персонал, чистоту и еду','Аквапарка нет','⚠️ Анимация громкая до позднего вечера'],
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'PK37-VX86',srcLabel:'qui-quo',map:M+'Armas+Beach+Hotel+Kemer+Turkey',
+     pics:['beach,sea','swimmingpool','hotelroom']},
+
+    {name:'Marmaris Park Hotel',stars:5,city:'Мармарис',cityCls:'marmaris',nights:7,meal:'AI',mealFull:'Всё включено (AI)',
+     pairPP:96224,trioPP:91183,total:465997,totalLabel:'465 997 ₽',ppn:13314,ppnLabel:'13 314 ₽',medal:3,win:false,
+     bar:'Всё включено (AI)',barWarn:false,fishka:'🍸 движ Мармариса',
+     joke:'Bar Street под боком — три парня и пара точно не заскучают. Обратный рейс в 01:30, чтобы тусить до последнего.',
+     leisure:['Рядом знаменитая Bar Street','Свой пляж в 50 м','VIP spa-салон','2-я по дешевизне сумма из всех','⚠️ Обратный рейс ночной (Pegasus 01:30)'],
+     extra:['Перелёт: Turkish + Pegasus','Даты: 12–19 июля (7 ночей)'],src:CHIP,srcLabel:'chip.travel',map:M+'Marmaris+Park+Hotel+Marmaris+Turkey',
+     pics:['marmaris,sea','beach,bar','swimmingpool']},
+
+    {name:'Green Nature Resort & Spa',stars:5,city:'Мармарис',cityCls:'marmaris',nights:7,meal:'AI',mealFull:'Всё включено (AI)',
+     pairPP:97944,trioPP:96788,total:486252,totalLabel:'486 252 ₽',ppn:13893,ppnLabel:'13 893 ₽',medal:0,win:false,
+     bar:'Всё включено (AI)',barWarn:false,fishka:'Зелёная территория',
+     joke:'Зелень, спа и Bar Street неподалёку. Для тех, кто хочет и движ, и подышать между коктейлями.',
+     leisure:['Клубные номера с балконом','Большая зелёная территория и спа','Рядом тусовки Мармариса','Хорошее питание'],
+     extra:['Перелёт: Turkish','Даты: 11–12 → 18–19 июля (7 ночей)'],src:CHIP,srcLabel:'chip.travel',map:M+'Green+Nature+Resort+Spa+Marmaris+Turkey',
+     pics:['resort,garden','marmaris,sea','swimmingpool']},
+
+    {name:'Vox Maris Resort 16+',stars:5,city:'Сиде',cityCls:'side',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
+     pairPP:117612,trioPP:110679,total:567262,totalLabel:'567 262 ₽',ppn:14182,ppnLabel:'14 182 ₽',medal:0,win:false,
+     bar:'Ultra All Inclusive',barWarn:false,fishka:'Без детей 🔞',
+     joke:'Adults Only. Никто не орёт «мама смотри как я ныряю» в 7 утра. Только взрослые, бар и тишина. Рай интроверта-тусовщика.',
+     leisure:['Adults Only 16+ — никаких детей','Номера у бассейна','Песчаный пляж Сиде рядом','Спокойный эстетичный вайб'],
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'KH25-IR73',srcLabel:'qui-quo',map:M+'Vox+Maris+Resort+Side+Turkey',
+     pics:['beach,resort','swimmingpool','cocktail,sunset']},
+
+    {name:'Lykia Botanika Beach',stars:4,city:'Фетхие',cityCls:'fethiye',nights:7,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
+     pairPP:109592,trioPP:93075,total:498408,totalLabel:'498 408 ₽',ppn:14240,ppnLabel:'14 240 ₽',medal:0,win:false,
+     bar:'Ultra All Inclusive',barWarn:false,fishka:'4★ · Ultra · семейный',
+     joke:'Единственная 4★, но Ultra. Фетхие — бирюзовые бухты и параглайдинг. Паре дороговато, парням в тройке — топ (93k).',
+     leisure:['Ex. Marvida Family — семейный формат','Бирюзовые бухты Фетхие рядом','Олюдениз и параглайдинг недалеко','4★ — чуть проще остальных','Парням в тройке очень выгодно'],
+     extra:['Даты: 11–12 → 18–19 июля (7 ночей)'],src:CHIP,srcLabel:'chip.travel',map:M+'Lykia+Botanika+Beach+Fethiye+Turkey',
+     pics:['turquoise,bay','beach,boat','swimmingpool']},
+
+    {name:'Armas Beach',stars:5,city:'Кемер',cityCls:'kemer',nights:6,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
+     pairPP:89140,trioPP:84724,total:432452,totalLabel:'432 452 ₽',ppn:14415,ppnLabel:'14 415 ₽',medal:0,win:false,
+     bar:'Бар + swim-up · премиум за доплату',barWarn:true,fishka:'💸 дешевле всего',
+     joke:'Тот же Armas, но 6 ночей — самая маленькая сумма из всех. Лишние деньги на сувениры и ракы.',
+     leisure:['Камерный отель, всё под рукой','Пляж прямо напротив, центр Кемера','Самая маленькая общая сумма','6 ночей вместо 8','⚠️ Анимация громкая до вечера'],
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–17 июля (6 ночей)'],src:QQ+'TP79-EL31',srcLabel:'qui-quo',map:M+'Armas+Beach+Hotel+Kemer+Turkey',
+     pics:['beach,sea','swimmingpool','hotelroom']},
+
+    {name:'Kremlin Palace',stars:5,city:'Анталья',cityCls:'antalya',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
+     pairPP:128510,trioPP:122637,total:624933,totalLabel:'624 933 ₽',ppn:15623,ppnLabel:'15 623 ₽',medal:0,win:false,
+     bar:'Ultra All Inclusive',barWarn:false,fishka:'🏙 большой город',
+     joke:'Назвали Кремлём, поставили в Анталье. Прилетел в Турцию — будто и не уезжал. Зато гигантский и до аэропорта рукой подать.',
+     leisure:['Гигантский добротный комплекс','Анталья: шопинг и старый город Калеичи','20 км от аэропорта — ехать недалеко','Хорошая анимация, вкусное питание','Есть куда выйти погулять'],
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'FG17-TZ77',srcLabel:'qui-quo',map:M+'Kremlin+Palace+Hotel+Antalya+Turkey',
+     pics:['resort,architecture','swimmingpool','antalya,marina']},
+
+    {name:'Crystal De Luxe Comfort',stars:5,city:'Кемер',cityCls:'kemer',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
+     pairPP:131642,trioPP:122811,total:631716,totalLabel:'631 716 ₽',ppn:15793,ppnLabel:'15 793 ₽',medal:0,win:false,
+     bar:'Бар + свой ночной клуб · мини-бар в номере',barWarn:false,fishka:'🪩 премиум-тусовка',
+     joke:'Свой ночной клуб + пешком до Ауры и Кристал. Зашли «на один коктейль», вышли утром под пение муэдзина. Классика.',
+     leisure:['Собственный ночной клуб','Аквапарк с горками, крытый бассейн','Пешком до дискотек Аура/Кристал','Бесплатный мини-бар в номере','4 ресторана и спа-центр'],
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'RU04-EJ38',srcLabel:'qui-quo',map:M+'Crystal+De+Luxe+Resort+Kemer+Turkey',
+     pics:['swimmingpool,resort','cocktail,bar','nightlife,party']},
+
+    {name:'Side Star Elegance',stars:5,city:'Сиде',cityCls:'side',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive · питание 24/7',
+     pairPP:136684,trioPP:127632,total:656265,totalLabel:'656 265 ₽',ppn:16407,ppnLabel:'16 407 ₽',medal:0,win:false,
+     bar:'Ultra All Inclusive · питание 24/7',barWarn:false,fishka:'Питание 24/7',
+     joke:'42 000 м² ухоженной территории и руины Сиде под боком. Культурно, дорого, питание круглосуточно.',
+     leisure:['Рядом руины античного Сиде','Песчаный пляж с пологим входом','42 000 м² ухоженной территории','Фитнес, теннис, бассейны','Самая дорогая сумма из всех'],
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'WK26-IA17',srcLabel:'qui-quo',map:M+'Side+Star+Elegance+Hotel+Side+Turkey',
+     pics:['beach,ruins','swimmingpool','hotelroom']},
+
+    {name:'Crystal De Luxe Comfort',stars:5,city:'Кемер',cityCls:'kemer',nights:6,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
+     pairPP:108341,trioPP:101493,total:521162,totalLabel:'521 162 ₽',ppn:17372,ppnLabel:'17 372 ₽',medal:0,win:false,
+     bar:'Бар + свой ночной клуб · мини-бар в номере',barWarn:false,fishka:'🪩 тусовка',
+     joke:'Тот же premium Crystal, но 6 ночей. Меньше ночей — меньше похмелья. Или нет.',
+     leisure:['Собственный ночной клуб','Аквапарк, крытый бассейн','Пешком до дискотек Аура/Кристал','Бесплатный мини-бар в номере','6 ночей вместо 8'],
+     extra:['Перелёт: Azur Air','Даты: 11–17 июля (6 ночей)'],src:QQ+'NV72-RW54',srcLabel:'qui-quo',map:M+'Crystal+De+Luxe+Resort+Kemer+Turkey',
+     pics:['swimmingpool,resort','cocktail,bar','nightlife,party']},
+
+    {name:'Corendon Hydros Club',stars:5,city:'Кемер',cityCls:'kemer',nights:6,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
+     pairPP:123851,trioPP:120964,total:610593,totalLabel:'610 593 ₽',ppn:20353,ppnLabel:'20 353 ₽',medal:0,win:false,
+     bar:'Бар и еда 24 часа · 2 у бассейна + пляжный',barWarn:false,fishka:'Больше всего движа',
+     joke:'Бар 24 часа — это не отель, а марафон. К концу бармен знает твоё имя, а ты — все 5 ресторанов наизусть.',
+     leisure:['Бар и Bistro работают круглосуточно','Аквапарк, свой пляж 270 м','Бесплатно: SUP, каяк, стрельба, йога','5 ресторанов: 2 буфета + 3 à la carte','Худшая цена за ночь из всех'],
+     extra:['Перелёт: Azur Air','Даты: 11–17 июля (6 ночей)'],src:QQ+'CN67-FF97',srcLabel:'qui-quo',map:M+'Corendon+Hydros+Club+Kemer+Turkey',
+     pics:['swimmingpool,waterpark','cocktail,bar','beach,resort']},
+
+    {name:'Armonia Holiday Village',stars:5,city:'Бодрум',cityCls:'bodrum',nights:8,meal:'AI',mealFull:'Всё включено (AI)',
+     pairPP:96764,trioPP:null,total:null,totalLabel:'~193 528 ₽ за 2',ppn:9e9,ppnLabel:'≈ 12 096 ₽*',medal:0,win:false,incat:true,
+     bar:'Всё включено (AI)',barWarn:false,fishka:'AI · вариант зайки',
+     joke:'Вариант зайки из Бодрума. Голосуем уважительно — счастливая зайка = счастливый отпуск. Любой женатик подтвердит.',
+     leisure:['Coral Travel, включён трансфер + страховка','Питание AI (не Ultra)','⚠️ Вылет 15 июля (другие даты)','⚠️ Цена только за 2 — тройку уточнить'],
+     extra:['Оператор: Coral Travel'],src:'https://chip.travel/tour/armonia-holiday-village-spa-5/coral/11233656556134',srcLabel:'chip.travel',map:M+'Armonia+Holiday+Village+Spa+Bodrum+Turkey',
+     pics:['bodrum,sea','swimmingpool','resort,garden']},
+
+    {name:'Mandarin Resort',stars:4,city:'Бодрум',cityCls:'bodrum',nights:8,meal:'AI',mealFull:'Всё включено (AI)',
+     pairPP:103603,trioPP:null,total:null,totalLabel:'~207 206 ₽ за 2',ppn:9e9,ppnLabel:'≈ 12 950 ₽*',medal:0,win:false,incat:true,
+     bar:'Всё включено (AI)',barWarn:false,fishka:'AI · 4★ · скидка',
+     joke:'Единственная 4★ от FUN&SUN со скидкой. Бюджетно и по-европейски, но цена пока только на двоих.',
+     leisure:['4★, питание AI','Раннее бронирование со скидкой −10 412 ₽','⚠️ Вылет 12 июля','⚠️ Цена только за 2 — тройку уточнить'],
+     extra:['Оператор: FUN & SUN'],src:'https://chip.travel/tour/mandarin-resort-4/fun%26sun/25221584579967',srcLabel:'chip.travel',map:M+'Mandarin+Resort+Hotel+Bodrum+Turkey',
+     pics:['bodrum,sea','swimmingpool','marina,boat']},
+  ];
+
+  const fmt=n=>n.toLocaleString('ru-RU')+' ₽';
+  const imgU=(tags,lock)=>'https://loremflickr.com/600/380/'+encodeURIComponent(tags)+'?lock='+lock;
+  const medalEmo=m=>m===1?'🥇':m===2?'🥈':m===3?'🥉':'';
+  DATA.forEach((d,i)=>d._lock=(i+1)*11);
+  const grid=document.getElementById('cardGrid');
+
+  function render(list){
+    grid.innerHTML=list.map(d=>{
+      const i=DATA.indexOf(d);
+      return `<div class="hcard ${d.win?'win':''} ${d.incat?'incat':''}">
+        <div class="ph">
+          <img src="${imgU(d.pics[0],d._lock)}" alt="" loading="lazy">
+          <div class="ov"></div>
+          ${d.medal?`<div class="medal">${medalEmo(d.medal)}</div>`:''}
+          <div class="loc"><span class="loc-badge l-${d.cityCls}">${d.city}</span></div>
+          <div class="ppn">${d.ppnLabel}<small> /чел/ночь</small></div>
+        </div>
+        <div class="bd">
+          <h4>${d.name} <span class="st">${'★'.repeat(d.stars)}</span></h4>
+          <div class="meta"><span>🌙 ${d.nights} ноч.</span><span>🍽 ${d.meal}</span><span class="tot">💰 ${d.totalLabel}</span></div>
+          <div class="prices"><span class="pill">👫 пара <b>${fmt(d.pairPP)}</b></span><span class="pill">👬 тройка <b>${d.trioPP?fmt(d.trioPP):'—'}</b></span></div>
+          <div class="bar ${d.barWarn?'warn':''}">🍹 ${d.bar}</div>
+          <div class="joke">${d.joke}</div>
+          <div class="acts">
+            <a href="${d.map}" target="_blank" rel="noopener">📍 Карта</a>
+            <a href="${d.src}" target="_blank" rel="noopener">🔗 Цена</a>
+            <button class="more" onclick="openModal(${i})">Подробнее →</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
   }
-  // десктоп: клик по заголовку — переключает направление
-  function sortTable(col,type){ sortDir[col]=!sortDir[col]; applySort(col,sortDir[col]); }
-  // мобайл: кнопка-чип с фиксированным направлением + подсветка активной
-  function mobSort(col,asc,btn){
-    applySort(col,asc);
-    document.querySelectorAll('.sortchip').forEach(c=>c.classList.remove('active'));
-    btn.classList.add('active');
+
+  function sortCards(key,asc,btn){
+    const v=d=>key==='total'?(d.total??Infinity):key==='ppn'?d.ppn:key==='nights'?d.nights:d.pairPP;
+    render([...DATA].sort((a,b)=>asc?v(a)-v(b):v(b)-v(a)));
+    document.querySelectorAll('.sortchip').forEach(c=>c.classList.remove('active'));btn.classList.add('active');
   }
+
+  function openModal(i){
+    const d=DATA[i];
+    document.getElementById('modalBody').innerHTML=`
+      <button class="close" onclick="closeModal()">×</button>
+      <div class="gal">
+        <img src="${imgU(d.pics[0],d._lock)}" alt=""><img src="${imgU(d.pics[1],d._lock+1)}" alt=""><img src="${imgU(d.pics[2],d._lock+2)}" alt="">
+      </div>
+      <div class="mbody">
+        <h3>${d.name} <span class="st">${'★'.repeat(d.stars)}</span></h3>
+        <div class="msub">${d.city} · ${d.nights} ночей · ${d.mealFull}${d.incat?' · <span class="flag2">неполные данные</span>':''}</div>
+        <div class="grid2">
+          <div class="stat"><div class="k">👫 Каждый из пары</div><div class="v">${fmt(d.pairPP)}</div></div>
+          <div class="stat"><div class="k">👬 Каждый из тройки</div><div class="v">${d.trioPP?fmt(d.trioPP):'уточнить'}</div></div>
+          <div class="stat"><div class="k">💰 Итого на 5</div><div class="v">${d.totalLabel}</div></div>
+          <div class="stat"><div class="k">📈 Цена/чел/ночь</div><div class="v">${d.ppnLabel}</div></div>
+        </div>
+        <div class="joke">😎 ${d.joke}</div>
+        <div class="bar ${d.barWarn?'warn':''}" style="margin-top:12px">🍹 ${d.bar}</div>
+        <h5>🎉 Досуг и инфраструктура</h5>
+        <ul>${d.leisure.map(x=>`<li>${x}</li>`).join('')}${d.extra.map(x=>`<li>${x}</li>`).join('')}</ul>
+        <div class="mlinks">
+          <a class="map" href="${d.map}" target="_blank" rel="noopener">📍 На карте</a>
+          <a class="src" href="${d.src}" target="_blank" rel="noopener">🔗 ${d.srcLabel}</a>
+        </div>
+      </div>`;
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+  render(DATA);
 
   // конфетти
   function confetti(){
@@ -598,15 +462,13 @@
   const picks=[
     {n:'Armas Beach · 8 ночей',m:'Судьба за здравый смысл. Дёшево, у моря, Кемер. 💸🏖'},
     {n:'Diamond of Bodrum · 8 ночей',m:'Едем в Европу! Чистое море и виды. Спим в самолёте. 💎'},
+    {n:'Marmaris Park · Мармарис',m:'Bar Street ждёт! Дёшево и движово. 🍸🕺'},
     {n:'Vox Maris 16+ · Сиде',m:'Adults Only. Дети, прощайте. Взрослый отдых! 🔞🍸'},
     {n:'Crystal De Luxe · 8 ночей',m:'Гуляем по-богатому, печень предупреждена. 🪩🥂'},
-    {n:'Corendon Hydros · 6 ночей',m:'Бар 24/7 ждёт. Спать будем дома. 🍸😵'},
-    {n:'Kremlin Palace · Анталья',m:'Имперский размах + большой город. 🏛🏙'},
-    {n:'Side Star Elegance · Сиде',m:'Античность и питание 24/7. Культурно. 🏛'},
-    {n:'Armas Beach · 6 ночей',m:'Минимализм и экономия. Деньги — на сувениры. 🐚'},
-    {n:'Marmaris Park · Мармарис',m:'Bar Street ждёт! Дёшево и движово. 🍸🕺'},
     {n:'Green Nature · Мармарис',m:'Зелёная территория + Bar Street рядом. 🌿'},
     {n:'Lykia Botanika · Фетхие',m:'Бирюзовые бухты и параглайдинг. Природа! 🪂'},
+    {n:'Corendon Hydros · 6 ночей',m:'Бар 24/7 ждёт. Спать будем дома. 🍸😵'},
+    {n:'Kremlin Palace · Анталья',m:'Имперский размах + большой город. 🏛🏙'},
     {n:'Вариант зайки',m:'Счастливая зайка — счастливый отпуск. Мудрый выбор. 💞'}
   ];
   function rollDice(){
