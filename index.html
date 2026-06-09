@@ -133,10 +133,20 @@
   footer{margin-top:46px;text-align:center;color:var(--muted);font-size:13px;line-height:1.7}
   .legend{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:12px 0 0;font-size:13px;color:var(--muted)}
 
+  /* панель сортировки (только моб) */
+  .sortbar{display:none;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+  .sortbar .sl{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;width:100%;margin-bottom:2px}
+  .sortchip{background:var(--card);border:1px solid var(--line);color:var(--text);font-size:13px;font-weight:600;
+    padding:9px 14px;border-radius:11px;cursor:pointer;transition:transform .12s,border-color .15s,background .15s}
+  .sortchip:active{transform:scale(.95)}
+  .sortchip.active{background:linear-gradient(135deg,var(--teal),var(--gold));color:#062018;border-color:transparent;font-weight:800}
+  .sortchip .dir{font-size:11px;opacity:.7}
+
   /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
   @media(max-width:760px){
     body{padding:24px 12px 60px}
     h2.section{font-size:18px;margin:34px 0 14px}
+    .sortbar{display:flex}
 
     /* таблица → карточки */
     .scroll{overflow:visible;border:none;box-shadow:none;border-radius:0}
@@ -225,7 +235,15 @@
   </p>
 
   <!-- MASTER TABLE -->
-  <h2 class="section">📊 Все 11 вариантов — жми на заголовки для сортировки</h2>
+  <h2 class="section">📊 Все 11 вариантов</h2>
+  <div class="sortbar">
+    <span class="sl">🔀 Сортировать:</span>
+    <button class="sortchip active" onclick="mobSort(5,true,this)">💰 Дешевле <span class="dir">↑</span></button>
+    <button class="sortchip" onclick="mobSort(6,true,this)">📈 Цена/ночь <span class="dir">↑</span></button>
+    <button class="sortchip" onclick="mobSort(2,false,this)">🌙 Больше ночей <span class="dir">↓</span></button>
+    <button class="sortchip" onclick="mobSort(3,true,this)">👫 Цена пары <span class="dir">↑</span></button>
+  </div>
+  <p style="color:var(--muted);font-size:13px;margin:-6px 2px 14px" class="deskhint">💻 На компьютере жми на заголовки таблицы, 📱 на телефоне — кнопки выше.</p>
   <div class="scroll">
   <table id="masterTable">
     <thead>
@@ -506,15 +524,20 @@
 
   // сортировка таблицы
   let sortDir={};
-  function sortTable(col,type){
+  function applySort(col,asc){
     const tb=document.querySelector('#masterTable tbody');
-    const rows=[...tb.rows];
-    sortDir[col]=!sortDir[col];
-    rows.sort((a,b)=>{
+    [...tb.rows].sort((a,b)=>{
       const av=parseFloat(a.cells[col].dataset.sort), bv=parseFloat(b.cells[col].dataset.sort);
-      return sortDir[col]?av-bv:bv-av;
-    });
-    rows.forEach(r=>tb.appendChild(r));
+      return asc?av-bv:bv-av;
+    }).forEach(r=>tb.appendChild(r));
+  }
+  // десктоп: клик по заголовку — переключает направление
+  function sortTable(col,type){ sortDir[col]=!sortDir[col]; applySort(col,sortDir[col]); }
+  // мобайл: кнопка-чип с фиксированным направлением + подсветка активной
+  function mobSort(col,asc,btn){
+    applySort(col,asc);
+    document.querySelectorAll('.sortchip').forEach(c=>c.classList.remove('active'));
+    btn.classList.add('active');
   }
 
   // конфетти
