@@ -80,9 +80,12 @@
   .hcard .ph{position:relative;height:168px;background:#0e1830;overflow:hidden;cursor:zoom-in}
   .hcard .ph .zoom{position:absolute;right:12px;bottom:10px;font-size:11px;font-weight:700;background:rgba(0,0,0,.55);color:#fff;
     padding:4px 10px;border-radius:999px;z-index:2;display:flex;align-items:center;gap:3px}
-  .barbadge{position:absolute;top:12px;left:12px;font-size:11.5px;font-weight:800;padding:5px 11px;border-radius:999px;
-    z-index:2;letter-spacing:.01em;box-shadow:0 2px 10px rgba(0,0,0,.45)}
+  .hcard .ph .tags{position:absolute;top:12px;left:12px;z-index:2;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+  .barbadge,.beachbadge{display:inline-block;font-size:11.5px;font-weight:800;padding:5px 11px;border-radius:999px;
+    letter-spacing:.01em;box-shadow:0 2px 10px rgba(0,0,0,.45)}
   .barbadge.free{background:#1f9d6a;color:#fff} .barbadge.part{background:#f0a52a;color:#241500}
+  .beachbadge.sand{background:#e8c97a;color:#3a2a00} .beachbadge.pebble{background:#90a6bd;color:#0f1f2e}
+  .beachbadge.mixed{background:#6fc3b0;color:#06251d} .beachbadge.none{background:#d9534f;color:#fff}
   .hcard .ph .loc .loc-badge{background:rgba(8,13,24,.72);border:1px solid currentColor;font-weight:800;font-size:12px;
     padding:4px 11px;box-shadow:0 2px 9px rgba(0,0,0,.5);backdrop-filter:blur(3px)}
   .hcard .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
@@ -413,6 +416,8 @@
 
   const fmt=n=>n.toLocaleString('ru-RU')+' ₽';
   const medalEmo=m=>m===1?'🥇':m===2?'🥈':m===3?'🥉':'';
+  const BEACH={kemer:['pebble','🪨 Галечный пляж'],antalya:['sand','🏖 Песчаный пляж'],side:['sand','🏖 Песчаный пляж'],
+    bodrum:['pebble','🪨 Галечный пляж'],marmaris:['mixed','🏖 Песок + галька'],fethiye:['mixed','🏖 Песок + галька']};
   const grid=document.getElementById('cardGrid');
 
   function render(list){
@@ -420,11 +425,12 @@
       const i=DATA.indexOf(d);
       const barType=(d.barWarn||d.meal==='AI')?'part':'free';
       const barText=barType==='free'?'🍹 Бар бесплатный':'🍹 Бар · есть доплаты';
+      const [bcls,btext]=BEACH[d.cityCls];
       return `<div class="hcard ${d.win?'win':''} ${d.incat?'incat':''}">
         <div class="ph" onclick="openLightbox(${i},0)">
           <img src="${d.pics[0]}" alt="" loading="lazy">
           <div class="ov"></div>
-          <div class="barbadge ${barType}">${barText}</div>
+          <div class="tags"><span class="barbadge ${barType}">${barText}</span><span class="beachbadge ${bcls}">${btext}</span></div>
           <div class="zoom">🔍 ${d.pics.length} фото</div>
           <div class="loc"><span class="loc-badge l-${d.cityCls}">${d.city}</span></div>
           <div class="ppn">${d.ppnLabel}<small> /чел/ночь</small></div>
@@ -456,6 +462,7 @@
     const d=DATA[i];
     const barType=(d.barWarn||d.meal==='AI')?'part':'free';
     const barText=barType==='free'?'🍹 Бар бесплатный':'🍹 Бар · есть доплаты';
+    const [bcls,btext]=BEACH[d.cityCls];
     document.getElementById('modalBody').innerHTML=`
       <button class="close" onclick="closeModal()">×</button>
       <div class="gal">
@@ -465,7 +472,7 @@
       <div class="mbody">
         <h3>${d.name} <span class="st">${'★'.repeat(d.stars)}</span></h3>
         <div class="msub">${d.city} · ${d.nights} ночей · ${d.mealFull}${d.incat?' · <span class="flag2">неполные данные</span>':''}</div>
-        <div style="margin:8px 0"><span class="barbadge ${barType}" style="position:static;display:inline-block">${barText}</span></div>
+        <div style="margin:8px 0;display:flex;gap:8px;flex-wrap:wrap"><span class="barbadge ${barType}">${barText}</span><span class="beachbadge ${bcls}">${btext}</span></div>
         <div class="grid2">
           <div class="stat"><div class="k">👫 Каждый из пары</div><div class="v">${fmt(d.pairPP)}</div></div>
           <div class="stat"><div class="k">👬 Каждый из тройки</div><div class="v">${d.trioPP?fmt(d.trioPP):'уточнить'}</div></div>
