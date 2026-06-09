@@ -77,7 +77,9 @@
   .hcard:hover{transform:translateY(-6px);border-color:var(--teal)}
   .hcard.win{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal),0 14px 34px rgba(52,227,195,.14)}
   .hcard.incat{opacity:.93}
-  .hcard .ph{position:relative;height:168px;background:#0e1830;overflow:hidden}
+  .hcard .ph{position:relative;height:168px;background:#0e1830;overflow:hidden;cursor:zoom-in}
+  .hcard .ph .zoom{position:absolute;right:12px;bottom:10px;font-size:11px;font-weight:700;background:rgba(0,0,0,.55);color:#fff;
+    padding:4px 10px;border-radius:999px;z-index:2;display:flex;align-items:center;gap:3px}
   .hcard .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
   .hcard:hover .ph img{transform:scale(1.06)}
   .hcard .ph .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,30,.1) 35%,rgba(10,16,30,.9))}
@@ -115,9 +117,26 @@
   @keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
   .modal .close{position:absolute;top:14px;right:16px;width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;
     background:rgba(0,0,0,.45);color:#fff;font-size:24px;line-height:1;z-index:3;display:flex;align-items:center;justify-content:center}
-  .modal .gal{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:118px 118px;gap:4px}
-  .modal .gal img{width:100%;height:100%;object-fit:cover;display:block}
+  .modal .gal{position:relative;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:118px 118px;gap:4px}
+  .modal .gal img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:opacity .15s}
+  .modal .gal img:hover{opacity:.85}
   .modal .gal img:nth-child(1){grid-row:1/3}
+  .modal .gal .galmore{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;border:1px solid rgba(255,255,255,.3);
+    font-size:12.5px;font-weight:700;padding:7px 13px;border-radius:999px;cursor:pointer;backdrop-filter:blur(2px)}
+  .modal .gal .galmore:hover{background:rgba(0,0,0,.8)}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;background:rgba(3,6,12,.96)}
+  .lb.open{display:flex}
+  .lb img{max-width:94vw;max-height:86vh;object-fit:contain;border-radius:8px;box-shadow:0 12px 50px rgba(0,0,0,.7)}
+  .lb .lbx{position:absolute;top:16px;right:22px;font-size:36px;line-height:1;color:#fff;background:none;border:none;cursor:pointer;z-index:3}
+  .lb .lbnav{position:absolute;top:50%;transform:translateY(-50%);font-size:46px;line-height:1;color:#fff;background:rgba(255,255,255,.1);
+    border:none;cursor:pointer;width:60px;height:92px;border-radius:14px;transition:background .15s}
+  .lb .lbnav:hover{background:rgba(255,255,255,.22)}
+  .lb .lbnav.prev{left:16px}.lb .lbnav.next{right:16px}
+  .lb .lbcount{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:#fff;font-weight:700;font-size:14px;
+    background:rgba(0,0,0,.5);padding:6px 16px;border-radius:999px}
+  @media(max-width:760px){.lb .lbnav{width:46px;height:72px;font-size:34px}.lb img{max-height:78vh}}
   .modal .mbody{padding:18px 20px 22px}
   .modal h3{font-size:21px} .modal h3 .st{color:var(--gold);font-size:15px}
   .modal .msub{color:var(--muted);font-size:13px;margin:3px 0 12px}
@@ -226,7 +245,7 @@
     <button class="sortchip" onclick="sortCards('nights',false,this)">🌙 Больше ночей</button>
     <button class="sortchip" onclick="sortCards('pair',true,this)">👫 Цена пары</button>
   </div>
-  <p class="sorthint">Жми «Подробнее» на карточке — там галерея, весь досуг, бар и детали. 📷 Фото атмосферные (по вайбу города и типа отеля); точное место — кнопка «Карта».</p>
+  <p class="sorthint">Жми «Подробнее» — там галерея, весь досуг, бар и детали. 📷 Кликни на фото отеля — откроется слайдер на весь экран (стрелки / свайп для листания).</p>
   <div class="hgrid" id="cardGrid"></div>
 
   <h2 class="section">🎲 Не можете выбрать? Доверьтесь судьбе</h2>
@@ -238,7 +257,7 @@
     Ultra All Inclusive у большинства; AI («всё включено») — у Armonia, Mandarin, Marmaris Park и Green Nature. Lykia — 4★, остальные 5★.<br>
     Вылет из Москвы ~11 июля 2026; часть туров — 12 июля (на 7 ночей) и 15 июля (Armonia).<br>
     «₽/чел/ночь» = (цена 2-местного + 3-местного номера) ÷ 5 человек ÷ число ночей — честное сравнение при разном числе ночей и городах.<br>
-    Armonia и Mandarin — неполные данные (цена только за 2 чел). Фото иллюстративные. Уточняйте актуальность у Юлии перед бронированием.
+    Armonia и Mandarin — неполные данные (цена только за 2 чел). Фото отелей — из галерей tourvisor.ru и chip.travel (у Armonia и Lykia — временные). Уточняйте актуальность у Юлии перед бронированием.
   </footer>
 
 </div>
@@ -246,6 +265,15 @@
 <!-- MODAL -->
 <div class="modal" id="modal">
   <div class="box" id="modalBody"></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lbx" onclick="lbClose()" aria-label="Закрыть">×</button>
+  <button class="lbnav prev" onclick="event.stopPropagation();lbStep(-1)" aria-label="Назад">‹</button>
+  <img id="lbimg" src="" alt="">
+  <button class="lbnav next" onclick="event.stopPropagation();lbStep(1)" aria-label="Вперёд">›</button>
+  <div class="lbcount" id="lbcount"></div>
 </div>
 
 <script>
@@ -262,6 +290,8 @@
   const QQ='https://qui-quo.ru/', CHIP='https://chip.travel/podborka#tvcartid=72247256';
   const TA_ARMAS='https://www.tripadvisor.ru/Hotel_Review-g297966-d1863950-Reviews-Armas_Beach_Hotel-Kemer_Turkish_Mediterranean_Coast.html';
   const TR_CRYSTAL='https://travelata.ru/turkey/hotels/kemer-centr-crystal-de-luxe-resort-spa-5-49494b2.html';
+  const T='https://static.tourvisor.ru/hotel_pics/verybig/4/';
+  const C='https://chip.travel/media/cache/760x460/images/hotels/uploads/';
   const DATA=[
     {name:'Diamond of Bodrum',stars:5,city:'Бодрум',cityCls:'bodrum',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
      pairPP:102400,trioPP:96939,total:495618,totalLabel:'495 618 ₽',ppn:12390,ppnLabel:'12 390 ₽',medal:1,win:true,
@@ -269,7 +299,7 @@
      joke:'Мало русифицирован — в баре не услышишь «а Серёга где?». Зато виды, чистое море и ночной рейс в 5 утра, чтобы выспаться... в самолёте.',
      leisure:['Центр Бодрума, чистейшее море','Панорамы города и атмосферные ресторанчики','Турецко-европейский, мало русифицирован','Пляж через подземный переход','⚠️ Ночные рейсы Pegasus (05:30 / 00:05)'],
      extra:['Перелёт: Pegasus','Даты: 11–19 июля'],src:QQ+'UL46-PO66',srcLabel:'qui-quo',map:M+'Diamond+of+Bodrum+Hotel+Bodrum+Turkey',info:'https://travelata.ru/turkey/resorts/bodrum/hotels/diamond-of-bodrum-5-6849aab.html',infoLabel:'Travelata',
-     pics:['bodrum,sea','marina,boat','swimmingpool,resort']},
+     pics:[T+'diamond-of-bodrum-102211040.jpg',T+'diamond-of-bodrum-102211041.jpg',T+'diamond-of-bodrum-102211042.jpg',T+'diamond-of-bodrum-102211043.jpg']},
 
     {name:'Armas Beach',stars:5,city:'Кемер',cityCls:'kemer',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
      pairPP:104018,trioPP:98130,total:502425,totalLabel:'502 425 ₽',ppn:12561,ppnLabel:'12 561 ₽',medal:2,win:true,
@@ -277,7 +307,7 @@
      joke:'Пляж напротив, кошелёк целее. Минус — анимация орёт до полуночи. Спать всё равно не будете, но хотя бы бесплатно.',
      leisure:['Камерный отель (~6000 м²), всё под рукой','Пляж прямо напротив, центр Кемера','Хвалят персонал, чистоту и еду','Аквапарка нет','⚠️ Анимация громкая до позднего вечера'],
      extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'PK37-VX86',srcLabel:'qui-quo',map:M+'Armas+Beach+Hotel+Kemer+Turkey',info:TA_ARMAS,infoLabel:'TripAdvisor',
-     pics:['beach,sea','swimmingpool','hotelroom']},
+     pics:[T+'armas-beach-hotel-exanatolia-beach-2113201.jpg',T+'armas-beach-hotel-exanatolia-beach-2113202.jpg',T+'armas-beach-hotel-exanatolia-beach-2113203.jpg',T+'armas-beach-hotel-exanatolia-beach-2113204.jpg',T+'armas-beach-hotel-exanatolia-beach-2113205.jpg',T+'armas-beach-hotel-exanatolia-beach-2113206.jpg']},
 
     {name:'Marmaris Park Hotel',stars:5,city:'Мармарис',cityCls:'marmaris',nights:7,meal:'AI',mealFull:'Всё включено (AI)',
      pairPP:96224,trioPP:91183,total:465997,totalLabel:'465 997 ₽',ppn:13314,ppnLabel:'13 314 ₽',medal:3,win:false,
@@ -285,7 +315,7 @@
      joke:'Bar Street под боком — три парня и пара точно не заскучают. Обратный рейс в 01:30, чтобы тусить до последнего.',
      leisure:['Рядом знаменитая Bar Street','Свой пляж в 50 м','VIP spa-салон','2-я по дешевизне сумма из всех','⚠️ Обратный рейс ночной (Pegasus 01:30)'],
      extra:['Перелёт: Turkish + Pegasus','Даты: 12–19 июля (7 ночей)'],src:CHIP,srcLabel:'chip.travel',map:M+'Marmaris+Park+Hotel+Marmaris+Turkey',
-     pics:['marmaris,sea','beach,bar','swimmingpool']},
+     pics:[C+'11/43/a0/1143a0851229ed26eb7c014694225ea03a769680.jpg',C+'21/70/a3/2170a3767ddf49ff306b9acddc2fc22934c4ba8a.jpg',C+'26/04/37/260437ad68e8ea6fc437f7e7ce8bf2810c978562.jpg',C+'27/b6/4c/27b64ca59b53a131bfbd88135e7405270454eb74.jpg',C+'2c/45/5a/2c455a4a9e32432ff43e072374a45c12f8f5862e.jpg',C+'35/d7/40/35d740e6370c36a4f21777f2b1c43014503badfe.jpg']},
 
     {name:'Green Nature Resort & Spa',stars:5,city:'Мармарис',cityCls:'marmaris',nights:7,meal:'AI',mealFull:'Всё включено (AI)',
      pairPP:97944,trioPP:96788,total:486252,totalLabel:'486 252 ₽',ppn:13893,ppnLabel:'13 893 ₽',medal:0,win:false,
@@ -293,7 +323,7 @@
      joke:'Зелень, спа и Bar Street неподалёку. Для тех, кто хочет и движ, и подышать между коктейлями.',
      leisure:['Клубные номера с балконом','Большая зелёная территория и спа','Рядом тусовки Мармариса','Хорошее питание'],
      extra:['Перелёт: Turkish','Даты: 11–12 → 18–19 июля (7 ночей)'],src:CHIP,srcLabel:'chip.travel',map:M+'Green+Nature+Resort+Spa+Marmaris+Turkey',
-     pics:['resort,garden','marmaris,sea','swimmingpool']},
+     pics:[C+'0d/32/80/0d328027af73039f6d646bf4a09817fe5401e50f.jpg',C+'1e/ae/bc/1eaebc184c6856d5c59e21cbd8452220100a2175.jpg',C+'39/21/37/392137bbd2d2ed9ee3e1f95fc42171d69fc99afe.jpg',C+'39/e4/51/39e4518c5c5659a529e23d04c5b828690449d72d.jpg',C+'3b/0b/e8/3b0be86ec102c9068a5ad491cbf5996e44773b2f.jpg',C+'45/42/3d/45423d1beb0a5aa7f85f7a8d17a217bf6bcda15f.jpg']},
 
     {name:'Vox Maris Resort 16+',stars:5,city:'Сиде',cityCls:'side',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
      pairPP:117612,trioPP:110679,total:567262,totalLabel:'567 262 ₽',ppn:14182,ppnLabel:'14 182 ₽',medal:0,win:false,
@@ -301,7 +331,7 @@
      joke:'Adults Only. Никто не орёт «мама смотри как я ныряю» в 7 утра. Только взрослые, бар и тишина. Рай интроверта-тусовщика.',
      leisure:['Adults Only 16+ — никаких детей','Номера у бассейна','Песчаный пляж Сиде рядом','Спокойный эстетичный вайб'],
      extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'KH25-IR73',srcLabel:'qui-quo',map:M+'Vox+Maris+Resort+Side+Turkey',info:'https://travelata.ru/turkey/hotels/side-centr-vox-maris-resort-5-23d11b0.html',infoLabel:'Travelata',
-     pics:['beach,resort','swimmingpool','cocktail,sunset']},
+     pics:[T+'vox-maris-resort-77833301.jpg',T+'vox-maris-resort-77833302.jpg',T+'vox-maris-resort-77833303.jpg',T+'vox-maris-resort-77833304.jpg',T+'vox-maris-resort-77833305.jpg',T+'vox-maris-resort-77833306.jpg']},
 
     {name:'Lykia Botanika Beach',stars:4,city:'Фетхие',cityCls:'fethiye',nights:7,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
      pairPP:109592,trioPP:93075,total:498408,totalLabel:'498 408 ₽',ppn:14240,ppnLabel:'14 240 ₽',medal:0,win:false,
@@ -309,7 +339,7 @@
      joke:'Единственная 4★, но Ultra. Фетхие — бирюзовые бухты и параглайдинг. Паре дороговато, парням в тройке — топ (93k).',
      leisure:['Ex. Marvida Family — семейный формат','Бирюзовые бухты Фетхие рядом','Олюдениз и параглайдинг недалеко','4★ — чуть проще остальных','Парням в тройке очень выгодно'],
      extra:['Даты: 11–12 → 18–19 июля (7 ночей)'],src:CHIP,srcLabel:'chip.travel',map:M+'Lykia+Botanika+Beach+Fethiye+Turkey',
-     pics:['turquoise,bay','beach,boat','swimmingpool']},
+     pics:['https://picsum.photos/seed/lykia1/640/420','https://picsum.photos/seed/lykia2/640/420','https://picsum.photos/seed/lykia3/640/420']},
 
     {name:'Armas Beach',stars:5,city:'Кемер',cityCls:'kemer',nights:6,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
      pairPP:89140,trioPP:84724,total:432452,totalLabel:'432 452 ₽',ppn:14415,ppnLabel:'14 415 ₽',medal:0,win:false,
@@ -317,7 +347,7 @@
      joke:'Тот же Armas, но 6 ночей — самая маленькая сумма из всех. Лишние деньги на сувениры и ракы.',
      leisure:['Камерный отель, всё под рукой','Пляж прямо напротив, центр Кемера','Самая маленькая общая сумма','6 ночей вместо 8','⚠️ Анимация громкая до вечера'],
      extra:['Перелёт: Turkish + Southwind','Даты: 11–17 июля (6 ночей)'],src:QQ+'TP79-EL31',srcLabel:'qui-quo',map:M+'Armas+Beach+Hotel+Kemer+Turkey',info:TA_ARMAS,infoLabel:'TripAdvisor',
-     pics:['beach,sea','swimmingpool','hotelroom']},
+     pics:[T+'armas-beach-hotel-exanatolia-beach-2113201.jpg',T+'armas-beach-hotel-exanatolia-beach-2113202.jpg',T+'armas-beach-hotel-exanatolia-beach-2113203.jpg',T+'armas-beach-hotel-exanatolia-beach-2113204.jpg',T+'armas-beach-hotel-exanatolia-beach-2113205.jpg',T+'armas-beach-hotel-exanatolia-beach-2113206.jpg']},
 
     {name:'Kremlin Palace',stars:5,city:'Анталья',cityCls:'antalya',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
      pairPP:128510,trioPP:122637,total:624933,totalLabel:'624 933 ₽',ppn:15623,ppnLabel:'15 623 ₽',medal:0,win:false,
@@ -325,7 +355,7 @@
      joke:'Назвали Кремлём, поставили в Анталье. Прилетел в Турцию — будто и не уезжал. Зато гигантский и до аэропорта рукой подать.',
      leisure:['Гигантский добротный комплекс','Анталья: шопинг и старый город Калеичи','20 км от аэропорта — ехать недалеко','Хорошая анимация, вкусное питание','Есть куда выйти погулять'],
      extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'FG17-TZ77',srcLabel:'qui-quo',map:M+'Kremlin+Palace+Hotel+Antalya+Turkey',info:'https://travelata.ru/turkey/resorts/antalya/hotels/kremlin-palace-ex-pgs-kremlin-palace-wow-kremlin-palace-hotel-5-e41420c.html',infoLabel:'Travelata',
-     pics:['resort,architecture','swimmingpool','antalya,marina']},
+     pics:[T+'wow-kremlin-palace-2515201.jpg',T+'wow-kremlin-palace-2515202.jpg',T+'wow-kremlin-palace-2515203.jpg',T+'wow-kremlin-palace-2515204.jpg',T+'wow-kremlin-palace-2515205.jpg',T+'wow-kremlin-palace-2515206.jpg']},
 
     {name:'Crystal De Luxe Comfort',stars:5,city:'Кемер',cityCls:'kemer',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
      pairPP:131642,trioPP:122811,total:631716,totalLabel:'631 716 ₽',ppn:15793,ppnLabel:'15 793 ₽',medal:0,win:false,
@@ -333,7 +363,7 @@
      joke:'Свой ночной клуб + пешком до Ауры и Кристал. Зашли «на один коктейль», вышли утром под пение муэдзина. Классика.',
      leisure:['Собственный ночной клуб','Аквапарк с горками, крытый бассейн','Пешком до дискотек Аура/Кристал','Бесплатный мини-бар в номере','4 ресторана и спа-центр'],
      extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'RU04-EJ38',srcLabel:'qui-quo',map:M+'Crystal+De+Luxe+Resort+Kemer+Turkey',info:TR_CRYSTAL,infoLabel:'Travelata',
-     pics:['swimmingpool,resort','cocktail,bar','nightlife,party']},
+     pics:[T+'crystal-de-luxe-resort-spa-69348401.jpg',T+'crystal-de-luxe-resort-spa-69348402.jpg',T+'crystal-de-luxe-resort-spa-69348403.jpg',T+'crystal-de-luxe-resort-spa-69348404.jpg',T+'crystal-de-luxe-resort-spa-69348405.jpg',T+'crystal-de-luxe-resort-spa-69348406.jpg']},
 
     {name:'Side Star Elegance',stars:5,city:'Сиде',cityCls:'side',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive · питание 24/7',
      pairPP:136684,trioPP:127632,total:656265,totalLabel:'656 265 ₽',ppn:16407,ppnLabel:'16 407 ₽',medal:0,win:false,
@@ -341,7 +371,7 @@
      joke:'42 000 м² ухоженной территории и руины Сиде под боком. Культурно, дорого, питание круглосуточно.',
      leisure:['Рядом руины античного Сиде','Песчаный пляж с пологим входом','42 000 м² ухоженной территории','Фитнес, теннис, бассейны','Самая дорогая сумма из всех'],
      extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'WK26-IA17',srcLabel:'qui-quo',map:M+'Side+Star+Elegance+Hotel+Side+Turkey',info:'https://travelata.ru/turkey/hotels/side-centr-side-star-elegance-ex-asteria-side-5-ef5ad26.html',infoLabel:'Travelata',
-     pics:['beach,ruins','swimmingpool','hotelroom']},
+     pics:[T+'asteria-hotel-side-102212220.jpg',T+'asteria-hotel-side-102212221.jpg',T+'asteria-hotel-side-102212222.jpg',T+'asteria-hotel-side-102212223.jpg',T+'asteria-hotel-side-102212224.jpg']},
 
     {name:'Crystal De Luxe Comfort',stars:5,city:'Кемер',cityCls:'kemer',nights:6,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
      pairPP:108341,trioPP:101493,total:521162,totalLabel:'521 162 ₽',ppn:17372,ppnLabel:'17 372 ₽',medal:0,win:false,
@@ -349,7 +379,7 @@
      joke:'Тот же premium Crystal, но 6 ночей. Меньше ночей — меньше похмелья. Или нет.',
      leisure:['Собственный ночной клуб','Аквапарк, крытый бассейн','Пешком до дискотек Аура/Кристал','Бесплатный мини-бар в номере','6 ночей вместо 8'],
      extra:['Перелёт: Azur Air','Даты: 11–17 июля (6 ночей)'],src:QQ+'NV72-RW54',srcLabel:'qui-quo',map:M+'Crystal+De+Luxe+Resort+Kemer+Turkey',info:TR_CRYSTAL,infoLabel:'Travelata',
-     pics:['swimmingpool,resort','cocktail,bar','nightlife,party']},
+     pics:[T+'crystal-de-luxe-resort-spa-69348401.jpg',T+'crystal-de-luxe-resort-spa-69348402.jpg',T+'crystal-de-luxe-resort-spa-69348403.jpg',T+'crystal-de-luxe-resort-spa-69348404.jpg',T+'crystal-de-luxe-resort-spa-69348405.jpg',T+'crystal-de-luxe-resort-spa-69348406.jpg']},
 
     {name:'Corendon Hydros Club',stars:5,city:'Кемер',cityCls:'kemer',nights:6,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
      pairPP:123851,trioPP:120964,total:610593,totalLabel:'610 593 ₽',ppn:20353,ppnLabel:'20 353 ₽',medal:0,win:false,
@@ -357,7 +387,7 @@
      joke:'Бар 24 часа — это не отель, а марафон. К концу бармен знает твоё имя, а ты — все 5 ресторанов наизусть.',
      leisure:['Бар и Bistro работают круглосуточно','Аквапарк, свой пляж 270 м','Бесплатно: SUP, каяк, стрельба, йога','5 ресторанов: 2 буфета + 3 à la carte','Худшая цена за ночь из всех'],
      extra:['Перелёт: Azur Air','Даты: 11–17 июля (6 ночей)'],src:QQ+'CN67-FF97',srcLabel:'qui-quo',map:M+'Corendon+Hydros+Club+Kemer+Turkey',info:'https://travelata.ru/turkey/hotels/kemer-centr-aqi-hydros-club-ex-club-hydros-tt-hotels-hydros-club-suntopia-hydros-club-5-f5a1d0c.html',infoLabel:'Travelata',
-     pics:['swimmingpool,waterpark','cocktail,bar','beach,resort']},
+     pics:[T+'joy-paladien-exhydros-beach-87607601.jpg',T+'joy-paladien-exhydros-beach-87607602.jpg',T+'joy-paladien-exhydros-beach-87607603.jpg',T+'joy-paladien-exhydros-beach-87607604.jpg',T+'joy-paladien-exhydros-beach-87607605.jpg',T+'joy-paladien-exhydros-beach-87607606.jpg']},
 
     {name:'Armonia Holiday Village',stars:5,city:'Бодрум',cityCls:'bodrum',nights:8,meal:'AI',mealFull:'Всё включено (AI)',
      pairPP:96764,trioPP:null,total:null,totalLabel:'~193 528 ₽ за 2',ppn:9e9,ppnLabel:'≈ 12 096 ₽*',medal:0,win:false,incat:true,
@@ -365,7 +395,7 @@
      joke:'Вариант зайки из Бодрума. Голосуем уважительно — счастливая зайка = счастливый отпуск. Любой женатик подтвердит.',
      leisure:['Coral Travel, включён трансфер + страховка','Питание AI (не Ultra)','⚠️ Вылет 15 июля (другие даты)','⚠️ Цена только за 2 — тройку уточнить'],
      extra:['Оператор: Coral Travel'],src:'https://chip.travel/tour/armonia-holiday-village-spa-5/coral/11233656556134',srcLabel:'chip.travel',map:M+'Armonia+Holiday+Village+Spa+Bodrum+Turkey',
-     pics:['bodrum,sea','swimmingpool','resort,garden']},
+     pics:['https://picsum.photos/seed/armonia1/640/420','https://picsum.photos/seed/armonia2/640/420','https://picsum.photos/seed/armonia3/640/420']},
 
     {name:'Mandarin Resort',stars:4,city:'Бодрум',cityCls:'bodrum',nights:8,meal:'AI',mealFull:'Всё включено (AI)',
      pairPP:103603,trioPP:null,total:null,totalLabel:'~207 206 ₽ за 2',ppn:9e9,ppnLabel:'≈ 12 950 ₽*',medal:0,win:false,incat:true,
@@ -373,22 +403,21 @@
      joke:'Единственная 4★ от FUN&SUN со скидкой. Бюджетно и по-европейски, но цена пока только на двоих.',
      leisure:['4★, питание AI','Раннее бронирование со скидкой −10 412 ₽','⚠️ Вылет 12 июля','⚠️ Цена только за 2 — тройку уточнить'],
      extra:['Оператор: FUN & SUN'],src:'https://chip.travel/tour/mandarin-resort-4/fun%26sun/25221584579967',srcLabel:'chip.travel',map:M+'Mandarin+Resort+Hotel+Bodrum+Turkey',
-     pics:['bodrum,sea','swimmingpool','marina,boat']},
+     pics:[C+'01/71/b2/0171b21e7ed7ae9ed19b975ed80b35f5b84c47cd.jpg',C+'02/df/b9/02dfb9d57170f1e9ce9998cae68981b005f95ab6.jpg',C+'13/e1/b1/13e1b1a7940880eb261537f91e2a5957da9641ac.jpg',C+'20/c6/53/20c653089248fa6bf3a1d614172c95da6cea0139.jpg',C+'21/ab/8d/21ab8d2b5317e8a8bff61bca739ee5b9080b4eb4.jpg',C+'22/b6/08/22b608ffdc320180d6ded869d1832a9aea55ca60.jpg']},
   ];
 
   const fmt=n=>n.toLocaleString('ru-RU')+' ₽';
-  const imgU=(tags,lock)=>'https://loremflickr.com/600/380/'+encodeURIComponent(tags)+'?lock='+lock;
   const medalEmo=m=>m===1?'🥇':m===2?'🥈':m===3?'🥉':'';
-  DATA.forEach((d,i)=>d._lock=(i+1)*11);
   const grid=document.getElementById('cardGrid');
 
   function render(list){
     grid.innerHTML=list.map(d=>{
       const i=DATA.indexOf(d);
       return `<div class="hcard ${d.win?'win':''} ${d.incat?'incat':''}">
-        <div class="ph">
-          <img src="${imgU(d.pics[0],d._lock)}" alt="" loading="lazy">
+        <div class="ph" onclick="openLightbox(${i},0)">
+          <img src="${d.pics[0]}" alt="" loading="lazy">
           <div class="ov"></div>
+          <div class="zoom">🔍 ${d.pics.length} фото</div>
           ${d.medal?`<div class="medal">${medalEmo(d.medal)}</div>`:''}
           <div class="loc"><span class="loc-badge l-${d.cityCls}">${d.city}</span></div>
           <div class="ppn">${d.ppnLabel}<small> /чел/ночь</small></div>
@@ -421,7 +450,8 @@
     document.getElementById('modalBody').innerHTML=`
       <button class="close" onclick="closeModal()">×</button>
       <div class="gal">
-        <img src="${imgU(d.pics[0],d._lock)}" alt=""><img src="${imgU(d.pics[1],d._lock+1)}" alt=""><img src="${imgU(d.pics[2],d._lock+2)}" alt="">
+        <img src="${d.pics[0]}" onclick="openLightbox(${i},0)" alt=""><img src="${d.pics[1]}" onclick="openLightbox(${i},1)" alt=""><img src="${d.pics[2]}" onclick="openLightbox(${i},2)" alt="">
+        <button class="galmore" onclick="openLightbox(${i},0)">🔍 Все ${d.pics.length} фото</button>
       </div>
       <div class="mbody">
         <h3>${d.name} <span class="st">${'★'.repeat(d.stars)}</span></h3>
@@ -445,9 +475,28 @@
     document.getElementById('modal').classList.add('open');
     document.body.style.overflow='hidden';
   }
-  function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+  function closeModal(){document.getElementById('modal').classList.remove('open');if(!lbIsOpen())document.body.style.overflow='';}
   document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+  // лайтбокс (полноэкранный слайдер)
+  let lbImgs=[],lbIdx=0;
+  const lbIsOpen=()=>document.getElementById('lb').classList.contains('open');
+  function openLightbox(hi,ii){lbImgs=DATA[hi].pics;lbIdx=ii||0;lbRender();
+    document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
+  function lbRender(){document.getElementById('lbimg').src=lbImgs[lbIdx];
+    document.getElementById('lbcount').textContent=(lbIdx+1)+' / '+lbImgs.length;}
+  function lbStep(d){lbIdx=(lbIdx+d+lbImgs.length)%lbImgs.length;lbRender();}
+  function lbClose(){document.getElementById('lb').classList.remove('open');
+    document.body.style.overflow=document.getElementById('modal').classList.contains('open')?'hidden':'';}
+  document.getElementById('lb').addEventListener('click',e=>{if(e.target.id==='lb')lbClose();});
+
+  document.addEventListener('keydown',e=>{
+    if(lbIsOpen()){
+      if(e.key==='Escape')lbClose();
+      else if(e.key==='ArrowLeft')lbStep(-1);
+      else if(e.key==='ArrowRight')lbStep(1);
+    } else if(e.key==='Escape')closeModal();
+  });
 
   render(DATA);
 
