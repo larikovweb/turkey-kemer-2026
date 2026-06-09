@@ -72,6 +72,10 @@
   .l-side{background:#9b8cff22;color:#b9acff} .l-bodrum{background:#ff8c5c22;color:#ff9d72} .l-marmaris{background:#ff7eb022;color:#ff9ec5}
   .medal{font-size:15px;margin-right:3px}
   .flag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:5px;background:rgba(255,207,92,.15);color:var(--gold);margin-top:3px}
+  .srcbtn{display:inline-block;font-size:12px;font-weight:700;padding:6px 12px;border-radius:9px;white-space:nowrap;
+    background:linear-gradient(135deg,rgba(52,227,195,.18),rgba(255,207,92,.12));border:1px solid var(--teal);
+    color:var(--teal);text-decoration:none;transition:transform .15s,box-shadow .15s}
+  .srcbtn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(52,227,195,.3)}
 
   /* region map */
   .regions{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
@@ -196,6 +200,7 @@
         <th class="sortable" onclick="sortTable(5,'num')">Итого на 5</th>
         <th class="sortable" onclick="sortTable(6,'num')">₽ / чел / ночь</th>
         <th>Фишка</th>
+        <th>Источник цены</th>
       </tr>
     </thead>
     <tbody>
@@ -208,6 +213,7 @@
         <td class="num" data-sort="495618">495 618 ₽</td>
         <td class="num best" data-sort="12390"><span class="medal">🥇</span>12 390 ₽</td>
         <td>Чистое море, виды</td>
+        <td><a class="srcbtn" href="https://qui-quo.ru/UL46-PO66" target="_blank" rel="noopener">🔗 qui-quo</a></td>
       </tr>
       <tr class="rowwin">
         <td class="htl">Armas Beach 5★<small>пляж напротив</small></td>
@@ -218,6 +224,7 @@
         <td class="num" data-sort="502425">502 425 ₽</td>
         <td class="num best" data-sort="12561"><span class="medal">🥈</span>12 561 ₽</td>
         <td>Лучший баланс</td>
+        <td><a class="srcbtn" href="https://qui-quo.ru/PK37-VX86" target="_blank" rel="noopener">🔗 qui-quo</a></td>
       </tr>
       <tr>
         <td class="htl">Vox Maris Resort 5★<small>Adults Only 16+</small></td>
@@ -228,6 +235,7 @@
         <td class="num" data-sort="567262">567 262 ₽</td>
         <td class="num" data-sort="14182"><span class="medal">🥉</span>14 182 ₽</td>
         <td>Без детей 🔞</td>
+        <td><a class="srcbtn" href="https://qui-quo.ru/KH25-IR73" target="_blank" rel="noopener">🔗 qui-quo</a></td>
       </tr>
       <tr>
         <td class="htl">Armas Beach 5★<small>тот же, 6 ночей</small></td>
@@ -238,6 +246,7 @@
         <td class="num best" data-sort="432452">432 452 ₽</td>
         <td class="num" data-sort="14415">14 415 ₽</td>
         <td>💸 дешевле всего</td>
+        <td><a class="srcbtn" href="https://qui-quo.ru/TP79-EL31" target="_blank" rel="noopener">🔗 qui-quo</a></td>
       </tr>
       <tr>
         <td class="htl">Kremlin Palace 5★<small>гигантский комплекс</small></td>
@@ -248,6 +257,7 @@
         <td class="num" data-sort="624933">624 933 ₽</td>
         <td class="num" data-sort="15623">15 623 ₽</td>
         <td>🏙 большой город</td>
+        <td><a class="srcbtn" href="https://qui-quo.ru/FG17-TZ77" target="_blank" rel="noopener">🔗 qui-quo</a></td>
       </tr>
       <tr>
         <td class="htl">Crystal De Luxe Comfort 5★<small>свой ночной клуб</small></td>
@@ -258,6 +268,7 @@
         <td class="num" data-sort="631716">631 716 ₽</td>
         <td class="num" data-sort="15793">15 793 ₽</td>
         <td>🪩 премиум-тусовка</td>
+        <td><a class="srcbtn" href="https://qui-quo.ru/RU04-EJ38" target="_blank" rel="noopener">🔗 qui-quo</a></td>
       </tr>
       <tr>
         <td class="htl">Side Star Elegance 5★<small>рядом античный Сиде</small></td>
@@ -268,6 +279,7 @@
         <td class="num" data-sort="656265">656 265 ₽</td>
         <td class="num" data-sort="16407">16 407 ₽</td>
         <td>Питание 24/7</td>
+        <td><a class="srcbtn" href="https://qui-quo.ru/WK26-IA17" target="_blank" rel="noopener">🔗 qui-quo</a></td>
       </tr>
       <tr>
         <td class="htl">Crystal De Luxe Comfort 5★<small>тот же, 6 ночей</small></td>
@@ -278,6 +290,7 @@
         <td class="num" data-sort="521162">521 162 ₽</td>
         <td class="num" data-sort="17372">17 372 ₽</td>
         <td>🪩 тусовка</td>
+        <td><a class="srcbtn" href="https://qui-quo.ru/NV72-RW54" target="_blank" rel="noopener">🔗 qui-quo</a></td>
       </tr>
       <tr>
         <td class="htl">Corendon Hydros Club 5★<small>бар 24/7, аквапарк</small></td>
@@ -288,6 +301,7 @@
         <td class="num worst" data-sort="610593">610 593 ₽</td>
         <td class="num worst" data-sort="20353">20 353 ₽</td>
         <td>Больше всего движа</td>
+        <td><a class="srcbtn" href="https://qui-quo.ru/CN67-FF97" target="_blank" rel="noopener">🔗 qui-quo</a></td>
       </tr>
       <tr style="opacity:.85">
         <td class="htl">Armonia Holiday Village 5★<small>Coral Travel · «вариант зайки»</small></td>
@@ -298,6 +312,7 @@
         <td class="num" data-sort="999999">~193 528 ₽<br><span class="flag">за 2 чел</span></td>
         <td class="num" data-sort="999999">≈ 12 096 ₽*</td>
         <td>AI, вылет 15 июля</td>
+        <td><a class="srcbtn" href="https://chip.travel/tour/armonia-holiday-village-spa-5/coral/11233656556134" target="_blank" rel="noopener">🔗 chip.travel</a></td>
       </tr>
       <tr style="opacity:.85">
         <td class="htl">Marmaris Park Hotel 5★<small>«зайка нашла»</small></td>
@@ -308,6 +323,7 @@
         <td class="num" data-sort="1000000">цена не пришла</td>
         <td class="num" data-sort="1000000">уточнить</td>
         <td>Рядом Bar Street</td>
+        <td><a class="srcbtn" href="https://chip.travel/turkey/marmaris/hotel/marmaris-park-hotel-5?departure=moskva&datefrom=11.07.2026&dateto=12.07.2026&nightsfrom=8&nightsto=13&adults=2&regular=1&stars=4&meal=0&regions=bodrum%2Bmarmaris%2Berzurum&subregions=206%2B207%2B208%2B209%2B210%2B211%2B227%2B228%2B229%2B230&beach=&hoteltypes=&nearness=&o=1" target="_blank" rel="noopener">🔗 chip.travel</a></td>
       </tr>
     </tbody>
   </table>
