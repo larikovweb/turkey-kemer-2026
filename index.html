@@ -102,6 +102,9 @@
   .hcard .acts .more{background:linear-gradient(135deg,var(--teal),var(--gold));color:#062018;border:none}
   .hcard .acts a:active,.hcard .acts button:active{transform:scale(.95)}
   .flag2{font-size:10px;font-weight:700;background:rgba(255,207,92,.15);color:var(--gold);padding:1px 6px;border-radius:5px}
+  .hcard .infolink{display:block;text-align:center;margin-top:8px;font-size:12.5px;font-weight:700;color:var(--gold);
+    text-decoration:none;padding:8px;border:1px dashed rgba(255,207,92,.45);border-radius:10px;transition:background .15s,color .15s}
+  .hcard .infolink:hover{background:rgba(255,207,92,.1);color:#fff;border-color:#fff}
 
   /* modal */
   .modal{position:fixed;inset:0;z-index:1000;display:none;align-items:flex-start;justify-content:center;padding:28px 14px;
@@ -129,6 +132,7 @@
   .modal .mlinks a{flex:1;text-align:center;padding:12px;border-radius:11px;font-weight:700;text-decoration:none;min-width:130px}
   .modal .mlinks .map{background:rgba(255,207,92,.14);color:var(--gold);border:1px solid var(--gold)}
   .modal .mlinks .src{background:rgba(52,227,195,.14);color:var(--teal);border:1px solid var(--teal)}
+  .modal .mlinks .info{background:rgba(255,207,92,.14);color:var(--gold);border:1px solid var(--gold)}
 
   /* dice */
   .randombtn{display:block;margin:8px auto 0;background:linear-gradient(135deg,var(--teal),var(--gold));
@@ -256,13 +260,15 @@
 
   const M='https://www.google.com/maps/search/?api=1&query=';
   const QQ='https://qui-quo.ru/', CHIP='https://chip.travel/podborka#tvcartid=72247256';
+  const TA_ARMAS='https://www.tripadvisor.ru/Hotel_Review-g297966-d1863950-Reviews-Armas_Beach_Hotel-Kemer_Turkish_Mediterranean_Coast.html';
+  const TR_CRYSTAL='https://travelata.ru/turkey/hotels/kemer-centr-crystal-de-luxe-resort-spa-5-49494b2.html';
   const DATA=[
     {name:'Diamond of Bodrum',stars:5,city:'Бодрум',cityCls:'bodrum',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
      pairPP:102400,trioPP:96939,total:495618,totalLabel:'495 618 ₽',ppn:12390,ppnLabel:'12 390 ₽',medal:1,win:true,
      bar:'Ultra All Inclusive',barWarn:false,fishka:'Чистое море, виды',
      joke:'Мало русифицирован — в баре не услышишь «а Серёга где?». Зато виды, чистое море и ночной рейс в 5 утра, чтобы выспаться... в самолёте.',
      leisure:['Центр Бодрума, чистейшее море','Панорамы города и атмосферные ресторанчики','Турецко-европейский, мало русифицирован','Пляж через подземный переход','⚠️ Ночные рейсы Pegasus (05:30 / 00:05)'],
-     extra:['Перелёт: Pegasus','Даты: 11–19 июля'],src:QQ+'UL46-PO66',srcLabel:'qui-quo',map:M+'Diamond+of+Bodrum+Hotel+Bodrum+Turkey',
+     extra:['Перелёт: Pegasus','Даты: 11–19 июля'],src:QQ+'UL46-PO66',srcLabel:'qui-quo',map:M+'Diamond+of+Bodrum+Hotel+Bodrum+Turkey',info:'https://travelata.ru/turkey/resorts/bodrum/hotels/diamond-of-bodrum-5-6849aab.html',infoLabel:'Travelata',
      pics:['bodrum,sea','marina,boat','swimmingpool,resort']},
 
     {name:'Armas Beach',stars:5,city:'Кемер',cityCls:'kemer',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
@@ -270,7 +276,7 @@
      bar:'Бар + swim-up · премиум за доплату',barWarn:true,fishka:'Лучший баланс',
      joke:'Пляж напротив, кошелёк целее. Минус — анимация орёт до полуночи. Спать всё равно не будете, но хотя бы бесплатно.',
      leisure:['Камерный отель (~6000 м²), всё под рукой','Пляж прямо напротив, центр Кемера','Хвалят персонал, чистоту и еду','Аквапарка нет','⚠️ Анимация громкая до позднего вечера'],
-     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'PK37-VX86',srcLabel:'qui-quo',map:M+'Armas+Beach+Hotel+Kemer+Turkey',
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'PK37-VX86',srcLabel:'qui-quo',map:M+'Armas+Beach+Hotel+Kemer+Turkey',info:TA_ARMAS,infoLabel:'TripAdvisor',
      pics:['beach,sea','swimmingpool','hotelroom']},
 
     {name:'Marmaris Park Hotel',stars:5,city:'Мармарис',cityCls:'marmaris',nights:7,meal:'AI',mealFull:'Всё включено (AI)',
@@ -294,7 +300,7 @@
      bar:'Ultra All Inclusive',barWarn:false,fishka:'Без детей 🔞',
      joke:'Adults Only. Никто не орёт «мама смотри как я ныряю» в 7 утра. Только взрослые, бар и тишина. Рай интроверта-тусовщика.',
      leisure:['Adults Only 16+ — никаких детей','Номера у бассейна','Песчаный пляж Сиде рядом','Спокойный эстетичный вайб'],
-     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'KH25-IR73',srcLabel:'qui-quo',map:M+'Vox+Maris+Resort+Side+Turkey',
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'KH25-IR73',srcLabel:'qui-quo',map:M+'Vox+Maris+Resort+Side+Turkey',info:'https://travelata.ru/turkey/hotels/side-centr-vox-maris-resort-5-23d11b0.html',infoLabel:'Travelata',
      pics:['beach,resort','swimmingpool','cocktail,sunset']},
 
     {name:'Lykia Botanika Beach',stars:4,city:'Фетхие',cityCls:'fethiye',nights:7,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
@@ -310,7 +316,7 @@
      bar:'Бар + swim-up · премиум за доплату',barWarn:true,fishka:'💸 дешевле всего',
      joke:'Тот же Armas, но 6 ночей — самая маленькая сумма из всех. Лишние деньги на сувениры и ракы.',
      leisure:['Камерный отель, всё под рукой','Пляж прямо напротив, центр Кемера','Самая маленькая общая сумма','6 ночей вместо 8','⚠️ Анимация громкая до вечера'],
-     extra:['Перелёт: Turkish + Southwind','Даты: 11–17 июля (6 ночей)'],src:QQ+'TP79-EL31',srcLabel:'qui-quo',map:M+'Armas+Beach+Hotel+Kemer+Turkey',
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–17 июля (6 ночей)'],src:QQ+'TP79-EL31',srcLabel:'qui-quo',map:M+'Armas+Beach+Hotel+Kemer+Turkey',info:TA_ARMAS,infoLabel:'TripAdvisor',
      pics:['beach,sea','swimmingpool','hotelroom']},
 
     {name:'Kremlin Palace',stars:5,city:'Анталья',cityCls:'antalya',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
@@ -318,7 +324,7 @@
      bar:'Ultra All Inclusive',barWarn:false,fishka:'🏙 большой город',
      joke:'Назвали Кремлём, поставили в Анталье. Прилетел в Турцию — будто и не уезжал. Зато гигантский и до аэропорта рукой подать.',
      leisure:['Гигантский добротный комплекс','Анталья: шопинг и старый город Калеичи','20 км от аэропорта — ехать недалеко','Хорошая анимация, вкусное питание','Есть куда выйти погулять'],
-     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'FG17-TZ77',srcLabel:'qui-quo',map:M+'Kremlin+Palace+Hotel+Antalya+Turkey',
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'FG17-TZ77',srcLabel:'qui-quo',map:M+'Kremlin+Palace+Hotel+Antalya+Turkey',info:'https://travelata.ru/turkey/resorts/antalya/hotels/kremlin-palace-ex-pgs-kremlin-palace-wow-kremlin-palace-hotel-5-e41420c.html',infoLabel:'Travelata',
      pics:['resort,architecture','swimmingpool','antalya,marina']},
 
     {name:'Crystal De Luxe Comfort',stars:5,city:'Кемер',cityCls:'kemer',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
@@ -326,7 +332,7 @@
      bar:'Бар + свой ночной клуб · мини-бар в номере',barWarn:false,fishka:'🪩 премиум-тусовка',
      joke:'Свой ночной клуб + пешком до Ауры и Кристал. Зашли «на один коктейль», вышли утром под пение муэдзина. Классика.',
      leisure:['Собственный ночной клуб','Аквапарк с горками, крытый бассейн','Пешком до дискотек Аура/Кристал','Бесплатный мини-бар в номере','4 ресторана и спа-центр'],
-     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'RU04-EJ38',srcLabel:'qui-quo',map:M+'Crystal+De+Luxe+Resort+Kemer+Turkey',
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'RU04-EJ38',srcLabel:'qui-quo',map:M+'Crystal+De+Luxe+Resort+Kemer+Turkey',info:TR_CRYSTAL,infoLabel:'Travelata',
      pics:['swimmingpool,resort','cocktail,bar','nightlife,party']},
 
     {name:'Side Star Elegance',stars:5,city:'Сиде',cityCls:'side',nights:8,meal:'Ultra AI',mealFull:'Ultra All Inclusive · питание 24/7',
@@ -334,7 +340,7 @@
      bar:'Ultra All Inclusive · питание 24/7',barWarn:false,fishka:'Питание 24/7',
      joke:'42 000 м² ухоженной территории и руины Сиде под боком. Культурно, дорого, питание круглосуточно.',
      leisure:['Рядом руины античного Сиде','Песчаный пляж с пологим входом','42 000 м² ухоженной территории','Фитнес, теннис, бассейны','Самая дорогая сумма из всех'],
-     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'WK26-IA17',srcLabel:'qui-quo',map:M+'Side+Star+Elegance+Hotel+Side+Turkey',
+     extra:['Перелёт: Turkish + Southwind','Даты: 11–19 июля'],src:QQ+'WK26-IA17',srcLabel:'qui-quo',map:M+'Side+Star+Elegance+Hotel+Side+Turkey',info:'https://travelata.ru/turkey/hotels/side-centr-side-star-elegance-ex-asteria-side-5-ef5ad26.html',infoLabel:'Travelata',
      pics:['beach,ruins','swimmingpool','hotelroom']},
 
     {name:'Crystal De Luxe Comfort',stars:5,city:'Кемер',cityCls:'kemer',nights:6,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
@@ -342,7 +348,7 @@
      bar:'Бар + свой ночной клуб · мини-бар в номере',barWarn:false,fishka:'🪩 тусовка',
      joke:'Тот же premium Crystal, но 6 ночей. Меньше ночей — меньше похмелья. Или нет.',
      leisure:['Собственный ночной клуб','Аквапарк, крытый бассейн','Пешком до дискотек Аура/Кристал','Бесплатный мини-бар в номере','6 ночей вместо 8'],
-     extra:['Перелёт: Azur Air','Даты: 11–17 июля (6 ночей)'],src:QQ+'NV72-RW54',srcLabel:'qui-quo',map:M+'Crystal+De+Luxe+Resort+Kemer+Turkey',
+     extra:['Перелёт: Azur Air','Даты: 11–17 июля (6 ночей)'],src:QQ+'NV72-RW54',srcLabel:'qui-quo',map:M+'Crystal+De+Luxe+Resort+Kemer+Turkey',info:TR_CRYSTAL,infoLabel:'Travelata',
      pics:['swimmingpool,resort','cocktail,bar','nightlife,party']},
 
     {name:'Corendon Hydros Club',stars:5,city:'Кемер',cityCls:'kemer',nights:6,meal:'Ultra AI',mealFull:'Ultra All Inclusive',
@@ -350,7 +356,7 @@
      bar:'Бар и еда 24 часа · 2 у бассейна + пляжный',barWarn:false,fishka:'Больше всего движа',
      joke:'Бар 24 часа — это не отель, а марафон. К концу бармен знает твоё имя, а ты — все 5 ресторанов наизусть.',
      leisure:['Бар и Bistro работают круглосуточно','Аквапарк, свой пляж 270 м','Бесплатно: SUP, каяк, стрельба, йога','5 ресторанов: 2 буфета + 3 à la carte','Худшая цена за ночь из всех'],
-     extra:['Перелёт: Azur Air','Даты: 11–17 июля (6 ночей)'],src:QQ+'CN67-FF97',srcLabel:'qui-quo',map:M+'Corendon+Hydros+Club+Kemer+Turkey',
+     extra:['Перелёт: Azur Air','Даты: 11–17 июля (6 ночей)'],src:QQ+'CN67-FF97',srcLabel:'qui-quo',map:M+'Corendon+Hydros+Club+Kemer+Turkey',info:'https://travelata.ru/turkey/hotels/kemer-centr-aqi-hydros-club-ex-club-hydros-tt-hotels-hydros-club-suntopia-hydros-club-5-f5a1d0c.html',infoLabel:'Travelata',
      pics:['swimmingpool,waterpark','cocktail,bar','beach,resort']},
 
     {name:'Armonia Holiday Village',stars:5,city:'Бодрум',cityCls:'bodrum',nights:8,meal:'AI',mealFull:'Всё включено (AI)',
@@ -398,6 +404,7 @@
             <a href="${d.src}" target="_blank" rel="noopener">🔗 Цена</a>
             <button class="more" onclick="openModal(${i})">Подробнее →</button>
           </div>
+          ${d.info?`<a class="infolink" href="${d.info}" target="_blank" rel="noopener">📖 Почитать об отеле · ${d.infoLabel} →</a>`:''}
         </div>
       </div>`;
     }).join('');
@@ -432,6 +439,7 @@
         <div class="mlinks">
           <a class="map" href="${d.map}" target="_blank" rel="noopener">📍 На карте</a>
           <a class="src" href="${d.src}" target="_blank" rel="noopener">🔗 ${d.srcLabel}</a>
+          ${d.info?`<a class="info" href="${d.info}" target="_blank" rel="noopener">📖 ${d.infoLabel}</a>`:''}
         </div>
       </div>`;
     document.getElementById('modal').classList.add('open');
